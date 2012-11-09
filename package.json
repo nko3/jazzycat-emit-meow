@@ -1,0 +1,19 @@
+{
+  "name": "nko3-jazzycat-emit-meow",
+  "version": "0.0.0",
+  "description": "jazzycat.emit('meow');",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:nko3/jazzycat-emit-meow.git"
+  },
+  "dependencies": {
+  },
+  "engines": {
+    "node": "0.8.x"
+  },
+  "subdomain": "jazzycat-emit-meow.nko3"
+}
