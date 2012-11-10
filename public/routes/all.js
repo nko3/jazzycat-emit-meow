@@ -7,3 +7,5 @@ console.log('mapper', mapperName);
   router = Router(routes);
 
 router.init();
+
+console.log(router);
