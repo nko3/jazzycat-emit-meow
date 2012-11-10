@@ -4990,3 +4990,8 @@ a.badge:hover {
 .actionable {
   cursor: pointer;
 }
+.cat {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+}
