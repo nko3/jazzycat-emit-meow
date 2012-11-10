@@ -16,8 +16,10 @@ module.exports = function(grunt) {
           'public/js/jquery.js', 'public/js/bootstrap.js',
           // then Knockout
           'public/js/knockout.js',
-          // then everything else
-          'public/js/*.js'
+          // then other js libs
+          'public/js/*.js',
+          // then mvc files
+          'mvc/*.js'
         ],
         dest: 'dist/js/all.js'
       }
