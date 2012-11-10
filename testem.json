@@ -3,7 +3,8 @@
   "src_files": [
     "dist/js/all.js",
     "mvc/*.js",
-    "test/*.js"
+    "test/*.js",
+    "routes/*.js"
   ],
   "launch_in_dev": [
     "Chrome",

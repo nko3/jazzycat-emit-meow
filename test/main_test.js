@@ -27,5 +27,12 @@ describe('main', function () {
     it('should be a function', function () {
       mapperViewModel.selectMapper.should.be.a('function');
     });
+
+    it('should set the hash', function () {
+      mapperViewModel.selectMapper({
+        folder: '/test'
+      });
+      location.hash.should.equal('#/test');
+    });
   });
 });
