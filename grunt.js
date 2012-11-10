@@ -26,10 +26,6 @@ module.exports = function(grunt) {
       'mvc': {
         src: 'mvc/*.js',
         dest: 'public/mvc/all.js'
-      },
-      'routes': {
-        src: 'routes/*.js',
-        dest: 'public/routes/all.js'
       }
     },
     less: {
