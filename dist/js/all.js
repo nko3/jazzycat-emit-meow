@@ -11549,3 +11549,6 @@ q};b.C.prototype=new b.v;b.C.prototype.renderTemplateSource=function(a){var d=!(
 var f=b.data("precompiled");f||(f=b.text()||"",f=E.template(n,"{{ko_with $item.koBindingContext}}"+f+"{{/ko_with}}"),b.data("precompiled",f));b=[c.$data];c=E.extend({koBindingContext:c},e.templateOptions);c=E.tmpl(f,b,c);c.appendTo(x.createElement("div"));E.fragments={};return c};this.createJavaScriptEvaluatorBlock=function(a){return"{{ko_code ((function() { return "+a+" })()) }}"};this.addTemplate=function(a,b){x.write("<script type='text/html' id='"+a+"'>"+b+"<\/script>")};0<a&&(E.tmpl.tag.ko_code=
 {open:"__.push($1 || '');"},E.tmpl.tag.ko_with={open:"with($1) {",close:"} "})};b.pa.prototype=new b.v;v=new b.pa;0<v.Cb&&b.va(v);b.b("jqueryTmplTemplateEngine",b.pa)}"function"===typeof require&&"object"===typeof exports&&"object"===typeof module?K(module.exports||exports):"function"===typeof define&&define.amd?define(["exports"],K):K(w.ko={});l;
 })();
+$(function() {
+  ko.applyBindings(new AppViewModel());
+});
