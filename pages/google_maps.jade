@@ -42,11 +42,9 @@ script
     return marker;
   });
 
-  var mcOptions = {gridSize: 50, maxZoom: 15},
-      mc = new MarkerClusterer(map.map, markers, mcOptions);
+  // Adjust the zoom to all markers
+  map.fitBounds({'latLngs': markers});
 
-  // // Add in the locations
-  // map.addMarkers(locations);
-
-  // // Adjust the zoom to all markers
-  // map.fitZoom();
+  // // Create a marker clusterer on the locations
+  // var mcOptions = {gridSize: 50, maxZoom: 15},
+  //     mc = new MarkerClusterer(map.map, markers, mcOptions);
