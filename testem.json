@@ -1,0 +1,12 @@
+{
+  "framework": "mocha",
+  "src_files": [
+    "public/*.js",
+    "test/*.js"
+  ],
+  "launch_in_dev": [
+    "Chrome",
+    "PhantomJS"
+  ],
+  "before_tests": "jshint ."
+}

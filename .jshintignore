@@ -1,1 +1,6 @@
-.jshintignore
+node_modules
+output/protect.js
+public/Bootstrapper.js
+src/core.js
+src/whitelist.js
+test/chaiShould.js

@@ -1,3 +1,6 @@
+/*jshint expr:true*/
 describe('hello', function () {
-  'henry'.should.exist;
+  it('should haz a henry', function () {
+    'henry'.should.exist;
+  });
 });
