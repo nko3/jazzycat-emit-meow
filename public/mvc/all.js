@@ -10,6 +10,10 @@ function MapperViewModel () {
     { mapperName: ":3", contributions: 2, lastUpdated: now },
     { mapperName: ":3", contributions: 5, lastUpdated: now }
   ]);
+
+  self.selectMapper = function (mapper) {
+    console.log('selected', mapper);
+  };
 }
 
 mapperViewModel = new MapperViewModel();

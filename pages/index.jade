@@ -16,7 +16,7 @@ section.container
         th Contributions
         th Last Updated
     tbody(data-bind="foreach: mappers")
-      tr.actionable
+      tr.actionable(data-bind="click: $root.selectMapper")
         td(data-bind="text: mapperName")
         td(data-bind="text: contributions")
         td(data-bind="text: lastUpdated")
