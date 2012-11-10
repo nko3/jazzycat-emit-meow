@@ -1,26 +1,19 @@
-!!!
-html
-  head
-    title Mapper Maker
-    link(href="/public/css/all.css",rel="stylesheet")
-    script(src="/public/js/all.js")
-  body
-    .container
-      .navbar
-        .navbar-inner
-          a.brand(href="#") Mapper Maker
-          ul.nav
-            li.active
-              a(href="#") Home
-    section.container
-      table.table.table-striped
-        thead
-          tr
-            th Mapper
-            th Contributions
-            th Last Updated
-        tbody(data-bind="foreach: mappers")
-          tr
-            td(data-bind="text: mapperName")
-            td(data-bind="text: contributions")
-            td(data-bind="text: lastUpdated")
+.container
+  .navbar
+    .navbar-inner
+      a.brand(href="#") Mapper Maker
+      ul.nav
+        li.active
+          a(href="#") Home
+section.container
+  table.table.table-striped
+    thead
+      tr
+        th Mapper
+        th Contributions
+        th Last Updated
+    tbody(data-bind="foreach: mappers")
+      tr
+        td(data-bind="text: mapperName")
+        td(data-bind="text: contributions")
+        td(data-bind="text: lastUpdated")
