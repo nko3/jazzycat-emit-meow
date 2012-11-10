@@ -11,7 +11,7 @@ module.exports = function(grunt) {
       'public': {
         src: [
           // sugar
-          'public/js/sugar.js',
+          'public/sugar.js',
           // jQuery, then Bootstrap
           'public/js/jquery.js', 'public/js/bootstrap.js',
           // then Knockout
