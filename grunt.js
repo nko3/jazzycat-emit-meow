@@ -24,7 +24,10 @@ module.exports = function(grunt) {
         dest: 'dist/js/all.js'
       },
       'mvc': {
-        src: 'mvc/*.js',
+        src: [
+          'mvc/mapperList.js',
+          'mvc/*.js'
+        ],
         dest: 'public/mvc/all.js'
       }
     },
