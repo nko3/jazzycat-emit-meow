@@ -9,7 +9,14 @@ module.exports = function(grunt) {
     concat: {
       // Public JS
       'public': {
-        src: ['public/js/*.js'],
+        src: [
+          // jQuery, then Bootstrap
+          'public/js/jquery.js', 'public/js/bootstrap.js',
+          // then Knockout
+          'public/js/knockout.js',
+          // then everything else
+          'public/js/*.js'
+        ],
         dest: 'dist/js/all.js'
       }
     },
