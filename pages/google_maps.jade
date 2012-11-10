@@ -1,7 +1,8 @@
-div#map
+div#map.google-maps
 style
   #map {
     height: 300px;
+    width: 600px;
   }
 
 script
@@ -14,59 +15,37 @@ script
       ZANZIBAR = {'lat': -6.1333, 'lng': 39.3167},
       SHANGHAI = {'lat': 31.2000, 'lng': 121.5000};
 
-  if (false) {
-    // Populate the list of locations with our cities (stub data)
-    var locations = [
-      SF,
-      SAN_JOSE,
-      NYC,
-      LONDON,
-      MOSCOW,
-      ZANZIBAR,
-      SHANGHAI
-    ];
+  // Populate the list of locations with our cities (stub data)
+  var locations = [
+    SF,SF,SF,SF,SF,SF,SF,SF,SF,SF,SF,SF,SF,SF,
+    SAN_JOSE,SAN_JOSE,SAN_JOSE,SAN_JOSE,SAN_JOSE,SAN_JOSE,SAN_JOSE,SAN_JOSE,
+    NYC,NYC,NYC,NYC,
+    LONDON,
+    MOSCOW,MOSCOW,MOSCOW,MOSCOW,MOSCOW,MOSCOW,
+    ZANZIBAR,ZANZIBAR,ZANZIBAR,ZANZIBAR,ZANZIBAR,ZANZIBAR,ZANZIBAR,
+    SHANGHAI
+  ];
 
-    // Generate our map
-    var map = new GMaps({
-      div: '#map',
-      lat: 37.3041,
-      lng: -121
-    });
+  // Generate our map
+  var map = new GMaps({
+    div: '#map',
+    lat: SF.lat,
+    lng: SF.lng
+  });
 
-    // Add in each location
-    locations.forEach(function (location) {
-      map.addMarker(location);
-    });
+  // Break all pass-by-objects to avoid GMaps deletion of cities
+  locations = JSON.parse(JSON.stringify(locations));
 
-    // Adjust the zoom to all markers
-    map.fitZoom();
-  } else {
-    // Populate the list of locations with our cities (stub data)
-    var locations = [
-      SF,SF,SF,SF,SF,SF,SF,SF,SF,SF,SF,SF,SF,SF,
-      SAN_JOSE,SAN_JOSE,SAN_JOSE,SAN_JOSE,SAN_JOSE,SAN_JOSE,SAN_JOSE,SAN_JOSE,
-      NYC,NYC,NYC,NYC,
-      LONDON,
-      MOSCOW,MOSCOW,MOSCOW,MOSCOW,MOSCOW,MOSCOW,
-      ZANZIBAR,ZANZIBAR,ZANZIBAR,ZANZIBAR,ZANZIBAR,ZANZIBAR,ZANZIBAR,
-      SHANGHAI
-    ];
+  // Set up the marker icon as a cirlce
+  locations = locations.map(function (location) {
+    location.icon = {
+      path: google.maps.SymbolPath.CIRCLE
+    };
+    return location;
+  });
 
-    // Generate our map
-    var map = new GMaps({
-      div: '#map',
-      lat: SF.lat,
-      lng: SF.lng
-    });
+  // Add in the locations
+  map.addMarkers(locations);
 
-    // Break all pass-by-objects to avoid GMaps deletion of cities
-    locations = JSON.parse(JSON.stringify(locations));
-
-    // Add in each location
-    locations.forEach(function (location) {
-      map.addMarker(location);
-    });
-
-    // Adjust the zoom to all markers
-    map.fitZoom();
-  }
+  // Adjust the zoom to all markers
+  map.fitZoom();
