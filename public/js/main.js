@@ -1,4 +1,5 @@
 function AppViewModel () {
+  var self = this;
   // Non-editable catalog data - would come from the server
   self.mappers = [
     { mapperName: "Standard (sandwich)", contributions: 2, lastUpdated: 2 },
@@ -8,6 +9,9 @@ function AppViewModel () {
   ];
 }
 
+var appViewModel = new AppViewModel();
+
+
 $(function() {
-  ko.applyBindings(new AppViewModel());
+  ko.applyBindings(appViewModel);
 });
