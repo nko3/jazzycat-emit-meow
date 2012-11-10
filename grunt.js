@@ -41,7 +41,9 @@ module.exports = function(grunt) {
         strict: false
       },
       globals: {
-        exports: true
+        exports: true,
+        describe: true,
+        it: true
       }
     }
   });
