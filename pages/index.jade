@@ -22,7 +22,7 @@ script(src="public/mvc/all.js")
   section.container
     .mapper(data-bind="template: { name: 'mapper-template', data: selectedMapper }")
 section.container(data-bind="if: !selectedMapper()")
-  button.btn.btn-success.pull-right New Mapper
+  button.btn.btn-success.pull-right(data-bind="click: createMapper") New Mapper
   table.table.table-striped.table-hover
     thead
       tr
