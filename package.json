@@ -1,6 +1,6 @@
 {
   "name": "nko3-jazzycat-emit-meow",
-  "version": "0.0.0-1",
+  "version": "0.0.0-2",
   "description": "jazzycat.emit('meow');",
   "main": "server.js",
   "scripts": {
