@@ -53,6 +53,7 @@ module.exports = function(grunt) {
 
   // Default task.
   // grunt.registerTask('default', 'lint concat less test');
-  grunt.registerTask('default', 'lint concat less');
+  grunt.registerTask('default', 'single watch');
 
+  grunt.registerTask('single', 'lint concat less');
 };
