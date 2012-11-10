@@ -26,8 +26,8 @@
   },
   "subdomain": "jazzycat-emit-meow.nko3",
   "scripts": {
-    "test": "grunt test",
-    "start": "node server.js"
+    "start": "node app.js",
+    "test": "grunt test"
   },
   "dependencies": {
     "sugar": "~1.3.6",
