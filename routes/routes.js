@@ -1,5 +1,9 @@
 var mapper = function (mapper) {
-console.log('mapper', mapper);
+    var $breadcrumb = $('.breadcrumb');
+
+    // Update breadcrumb
+
+    // Load selected mapper
   },
   routes = {
     '/:mapper': mapper
