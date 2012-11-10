@@ -16,22 +16,22 @@ function MapperViewModel () {
 
   self.mappers =  ko.observableArray([
     {
-      name: "Motorcycle Parking Mapper",
+      name: 'Motorcycle Parking Mapper',
       contributions: 17,
       folder: '/motorcycle'
     },
     {
-      name: "Cat Mapper",
+      name: 'Cat Mapper',
       contributions: 77,
       folder: '/cat'
     },
     {
-      name: "Beard Mapper",
+      name: 'Beard Mapper',
       contributions: 21,
       folder: '/beard'
     },
     {
-      name: ":3",
+      name: ':3',
       contributions: 5,
       folder: '/kitteh'
     }
