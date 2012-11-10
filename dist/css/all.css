@@ -4987,3 +4987,6 @@ a.badge:hover {
 .affix {
   position: fixed;
 }
+.actionable {
+  cursor: pointer;
+}

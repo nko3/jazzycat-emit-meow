@@ -1,21 +1,21 @@
 /*jshint expr:true*/
-/*globals appViewModel*/
+/*globals mapperViewModel*/
 describe('main', function () {
   it('should exist', function () {
-    appViewModel.should.exist;
+    mapperViewModel.should.exist;
   });
 
   it('should be an object', function () {
-    appViewModel.should.be.a('object');
+    mapperViewModel.should.be.a('object');
   });
 
   describe('mappers', function () {
     it('should exist', function () {
-      appViewModel.mappers.should.exist;
+      mapperViewModel.mappers.should.exist;
     });
 
     it('should be an observable array', function () {
-      appViewModel.mappers().should.be.a('array');
+      mapperViewModel.mappers().should.be.a('array');
     });
   });
 });

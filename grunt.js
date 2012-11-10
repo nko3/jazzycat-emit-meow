@@ -17,11 +17,13 @@ module.exports = function(grunt) {
           // then Knockout
           'public/js/knockout.js',
           // then other js libs
-          'public/js/*.js',
-          // then mvc files
-          'mvc/*.js'
+          'public/js/*.js'
         ],
         dest: 'dist/js/all.js'
+      },
+      'mvc': {
+        src: 'mvc/*.js',
+        dest: 'public/mvc/all.js'
       }
     },
     less: {
@@ -77,7 +79,7 @@ module.exports = function(grunt) {
   grunt.registerTask('default', 'single watch');
 
   grunt.registerTask('single', 'js css');
-  
+
   grunt.registerTask('js', 'lint concat');
   grunt.registerTask('css', 'less');
 };
