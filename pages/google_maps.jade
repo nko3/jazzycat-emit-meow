@@ -16,24 +16,39 @@ script
 
   ];
 
-  var map = new GMaps({
-    div: '#map',
-    lat: 37.3041,
-    lng: -121,
+  // var map = new GMaps({
+  //   div: '#map',
+  //   lat: 37.3041,
+  //   lng: -121,
+  //   markers: [
+  //     SF,
+  //     SAN_JOSE,
+  //     NYC
+  //     // LONDON,
+  //     // MOSCOW,
+  //     // ZANZIBAR
+  //   ]
+  // });
+  // 
+  // var southWest = new google.maps.LatLng(SF.lat,SF.lng);
+  // var northEast = new google.maps.LatLng(SAN_JOSE.lat,SAN_JOSE.lng);
+  // var bounds = new google.maps.LatLngBounds(southWest,northEast);
+  // 
+  // map.map.fitBounds(bounds);
+  
+  var url = GMaps.staticMapURL({
+    lat: -12.043333,
+    lng: -77.028333,
     markers: [
-      SF,
-      SAN_JOSE,
-      NYC
-      // LONDON,
-      // MOSCOW,
-      // ZANZIBAR
+      {lat: -12.043333, lng: -77.028333},
+      {lat: -12.045333, lng: -77.034,
+        size: 'small'},
+      {lat: -12.045633, lng: -77.022,
+        color: 'blue'}
     ]
   });
 
-  var southWest = new google.maps.LatLng(SF.lat,SF.lng);
-  var northEast = new google.maps.LatLng(SAN_JOSE.lat,SAN_JOSE.lng);
-  var bounds = new google.maps.LatLngBounds(southWest,northEast);
-
-  map.map.fitBounds(bounds);
+  $('<img/>').attr('src', url)
+    .appendTo('#map');
 
   // map.fitZoom();
