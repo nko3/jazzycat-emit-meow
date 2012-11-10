@@ -5,9 +5,9 @@ function MapperViewModel () {
   var self = this;
 
   self.mappers =  ko.observableArray([
-    { mapperName: ":2", contributions: 1, lastUpdated: now },
-    { mapperName: ":1", contributions: 77, lastUpdated: now },
-    { mapperName: ":3", contributions: 2, lastUpdated: now },
+    { mapperName: "Motorcycle Parking Mapper", contributions: 17, lastUpdated: now },
+    { mapperName: "Cat Mapper", contributions: 77, lastUpdated: now },
+    { mapperName: "Beard Mapper", contributions: 21, lastUpdated: now },
     { mapperName: ":3", contributions: 5, lastUpdated: now }
   ]);
 
