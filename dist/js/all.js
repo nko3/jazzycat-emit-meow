@@ -11550,5 +11550,9 @@ var f=b.data("precompiled");f||(f=b.text()||"",f=E.template(n,"{{ko_with $item.k
 {open:"__.push($1 || '');"},E.tmpl.tag.ko_with={open:"with($1) {",close:"} "})};b.pa.prototype=new b.v;v=new b.pa;0<v.Cb&&b.va(v);b.b("jqueryTmplTemplateEngine",b.pa)}"function"===typeof require&&"object"===typeof exports&&"object"===typeof module?K(module.exports||exports):"function"===typeof define&&define.amd?define(["exports"],K):K(w.ko={});l;
 })();
 $(function() {
+  function AppViewModel () {
+
+  }
+
   ko.applyBindings(new AppViewModel());
 });
