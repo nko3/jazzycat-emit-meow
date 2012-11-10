@@ -18,21 +18,4 @@ describe('main', function () {
       mapperViewModel.mappers().should.be.a('array');
     });
   });
-
-  describe('selectMapper', function () {
-    it('should exist', function () {
-      mapperViewModel.selectMapper.should.exist;
-    });
-
-    it('should be a function', function () {
-      mapperViewModel.selectMapper.should.be.a('function');
-    });
-
-    it('should set the hash', function () {
-      mapperViewModel.selectMapper({
-        folder: '/test'
-      });
-      location.hash.should.equal('#/test');
-    });
-  });
 });

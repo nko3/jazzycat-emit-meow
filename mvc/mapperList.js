@@ -4,13 +4,14 @@ var mapperViewModel,
 
 
 function Mapper (data, parent) {
-  console.log(parent);
   var self = this;
   self.mapperName = data.name;
   self.contributions = data.contributions;
   self.lastUpdated = new Date();
   self.folder = data.folder;
-  self.select = parent.selectMapper;
+  self.select = function () {
+    location.hash = self.mapperName;
+  };
 }
 
 function MapperViewModel () {
@@ -40,14 +41,6 @@ function MapperViewModel () {
   ].map(function (data) {
     return new Mapper(data, self);
   }));
-
-  self.selectMapper = function (mapper) {
-    console.log('selected', mapper);
-    location.hash = mapper.folder;
-
-    // Load selected mapper
-
-  };
 }
 
 mapperViewModel = new MapperViewModel();
