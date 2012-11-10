@@ -8412,3 +8412,5 @@ Date.addLocale('zh-TW', {
 });
 
 })();
+
+Object.extend();
