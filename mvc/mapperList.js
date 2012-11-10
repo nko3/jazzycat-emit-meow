@@ -1,7 +1,4 @@
-var mapperViewModel,
-  now = new Date();
-
-
+var mapperViewModel;
 
 function Mapper (data, parent) {
   var self = this;
