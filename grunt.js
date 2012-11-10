@@ -26,6 +26,10 @@ module.exports = function(grunt) {
       'mvc': {
         src: 'mvc/*.js',
         dest: 'public/mvc/all.js'
+      },
+      'routes': {
+        src: 'routes/*.js',
+        dest: 'public/routes/all.js'
       }
     },
     less: {
@@ -36,7 +40,7 @@ module.exports = function(grunt) {
     },
     watch: {
       'js': {
-        files: ['public/js/**', 'mvc/**/*.js'],
+        files: ['public/js/**', 'mvc/**/*.js', 'routes/**/*.js'],
         tasks: 'js'
       },
       'css': {
