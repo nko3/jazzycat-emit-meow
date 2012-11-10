@@ -16,6 +16,8 @@ module.exports = function(grunt) {
           'public/js/jquery.js', 'public/js/bootstrap.js',
           // then Knockout
           'public/js/knockout.js',
+          // then GMaps
+          'public/js/gmaps.js',
           // then other js libs
           'public/js/*.js'
         ],
