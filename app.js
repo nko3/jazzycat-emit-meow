@@ -1,4 +1,7 @@
 var express = require('express'),
+    env = process.env.NODE_ENV,
+    inProduction = env === 'production',
+    inDevelopment = !inProduction,
     app = express.createServer();
 
 // Lactate servers for gzipping? (recommendation by Henry)
@@ -13,12 +16,16 @@ app.set('view engine', 'jade');
 app.get('/', function (req, res) {
   res.render('index');
 });
-app.get('/bootstrap_url_test', function (req, res) {
-  res.render('bootstrap_url_test');
-});
-app.get('/google_maps', function (req, res) {
-  res.render('google_maps');
-});
+
+// // If we are in development, display test pages
+// if (inDevelopment) {
+  app.get('/bootstrap_url_test', function (req, res) {
+    res.render('bootstrap_url_test');
+  });
+  app.get('/google_maps', function (req, res) {
+    res.render('google_maps');
+  });
+// }
 
 // Health page (attribution to dshaw)
 var pkg = require('./package.json');
