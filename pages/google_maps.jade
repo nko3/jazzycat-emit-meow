@@ -36,16 +36,17 @@ script
   // Break all pass-by-objects to avoid GMaps deletion of cities
   locations = JSON.parse(JSON.stringify(locations));
 
-  // Set up the marker icon as a cirlce
-  locations = locations.map(function (location) {
-    location.icon = {
-      path: google.maps.SymbolPath.BACKWARD_OPEN_ARROW
-    };
-    return location;
+  // Render locations to markers
+  var markers = locations.map(function (location) {
+    var marker = map.createMarker(location);
+    return marker;
   });
 
-  // Add in the locations
-  map.addMarkers(locations);
+  var mcOptions = {gridSize: 50, maxZoom: 15},
+      mc = new MarkerClusterer(map.map, markers, mcOptions);
 
-  // Adjust the zoom to all markers
-  map.fitZoom();
+  // // Add in the locations
+  // map.addMarkers(locations);
+
+  // // Adjust the zoom to all markers
+  // map.fitZoom();
