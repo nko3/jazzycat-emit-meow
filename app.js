@@ -5,6 +5,7 @@ var express = require('express'),
 // Lactate servers for gzipping? (recommendation by Henry)
 app.use('/public', lactate['static'](__dirname + '/dist'));
 app.use('/public', lactate['static'](__dirname + '/public'));
+// app.use('/public', lactate['static'](__dirname + '/mvc'));
 
 // Pages is the server views dir
 app.set('views', __dirname + '/pages');

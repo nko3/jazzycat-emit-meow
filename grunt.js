@@ -17,7 +17,9 @@ module.exports = function(grunt) {
           // then Knockout
           'public/js/knockout.js',
           // then everything else
-          'public/js/*.js'
+          'public/js/*.js',
+          // then mvc
+          'mvc/*.js'
         ],
         dest: 'dist/js/all.js'
       }
