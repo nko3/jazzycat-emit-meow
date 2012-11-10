@@ -1,3 +1,4 @@
+script(src="public/mvc/all.js")
 .navbar
   .navbar-inner
     a.brand(href="#") Mapper Maker
@@ -5,14 +6,14 @@
       li.active
         a(href="#") Home
 section.container
-  table.table.table-striped
+  table.table.table-striped.table-hover
     thead
       tr
         th Mapper
         th Contributions
         th Last Updated
     tbody(data-bind="foreach: mappers")
-      tr
+      tr.actionable
         td(data-bind="text: mapperName")
         td(data-bind="text: contributions")
         td(data-bind="text: lastUpdated")
