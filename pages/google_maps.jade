@@ -42,8 +42,21 @@ script
     return marker;
   });
 
-  // Adjust the zoom to all markers
-  map.fitBounds({'latLngs': markers});
+  // // Adjust the zoom to all markers
+  // map.fitLatLngBounds(locations);
+
+  function a(latLngs) {
+    var total = latLngs.length;
+    var bounds = new google.maps.LatLngBounds();
+    console.log(latLngs);
+    for(var i=0; i < total; i++) {
+      console.log(latLngs[i]);
+      bounds.extend(latLngs[i]);
+    }
+
+    return bounds;
+  }
+  console.log(a.call(map, locations));
 
   // // Create a marker clusterer on the locations
   // var mcOptions = {gridSize: 50, maxZoom: 15},
