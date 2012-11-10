@@ -1,0 +1,16 @@
+div#geoOutput Waiting for input...
+
+script
+  $(function () {
+    // Grab the output and the geolocation
+    var $geoOutput = $('#geoOutput'),
+        geolocation = window.navigator.geolocation;
+
+    // If geolocation exists, start fetching location
+    if (geolocation) {
+      $geoOutput.text('Geolocation available!! =D');
+    } else {
+    // Otherwise, update geolookup
+      $geoOutput.text('Geolocation not available =(');
+    }
+  });
