@@ -1,5 +1,4 @@
 var express = require('express'),
-    lactate = require('lactate'),
     app = express.createServer();
 
 // Lactate servers for gzipping? (recommendation by Henry)

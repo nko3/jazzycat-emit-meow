@@ -32,7 +32,6 @@
   "dependencies": {
     "sugar": "~1.3.6",
     "express": "~2.5.11",
-    "lactate": "~0.12.2",
     "jade": "~0.27.7"
   },
   "devDependencies": {

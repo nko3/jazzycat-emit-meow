@@ -1,3 +1,4 @@
 /node_modules
 monServer.cmd
 *.orig
+npm-debug.log
