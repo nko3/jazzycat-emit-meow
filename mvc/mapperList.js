@@ -10,6 +10,10 @@ function Mapper (data, parent) {
     location.hash = self.folder;
     parent.selectedMapper(self);
   };
+  self.deselect = function () {
+    location.hash = '/';
+    parent.selectedMapper(null);
+  };
 }
 
 function MapperViewModel () {
