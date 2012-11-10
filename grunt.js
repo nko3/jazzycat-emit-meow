@@ -4,7 +4,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: '<json:package.json>',
     lint: {
-      files: ['grunt.js', 'lib/**/*.js', 'test/*_test.js']
+      files: ['grunt.js', 'mvc/**/*.js', 'test/*_test.js']
     },
     concat: {
       // Public JS
@@ -31,8 +31,14 @@ module.exports = function(grunt) {
       }
     },
     watch: {
-      files: '<config:lint.files>',
-      tasks: 'single'
+      'js': {
+        files: 'public/js/**',
+        tasks: 'js'
+      },
+      'css': {
+        files: 'public/css/**',
+        tasks: 'css'
+      }
     },
     jshint: {
       options: {
@@ -48,13 +54,18 @@ module.exports = function(grunt) {
         eqnull: true,
         node: true,
 
+        // ugh, should get a proper set up for envs
+        browser: true,
+
         // Ignore strict
         strict: false
       },
       globals: {
         exports: true,
         describe: true,
-        it: true
+        it: true,
+        ko: true,
+        $: true
       }
     }
   });
@@ -66,5 +77,8 @@ module.exports = function(grunt) {
   // grunt.registerTask('default', 'lint concat less test');
   grunt.registerTask('default', 'single watch');
 
-  grunt.registerTask('single', 'lint concat less');
+  grunt.registerTask('single', 'js css');
+  
+  grunt.registerTask('js', 'lint concat');
+  grunt.registerTask('css', 'less');
 };
