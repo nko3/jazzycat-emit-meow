@@ -18,7 +18,7 @@ app.set('view engine', 'jade');
 
 // Send down index.html
 app.get('/', function (req, res) {
-  res.render('index', {'bodyContent': 'test'});
+  res.render('index');
 });
 
 // Begin listening and log accordingly
