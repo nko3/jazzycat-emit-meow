@@ -14,6 +14,9 @@ function MapperViewModel () {
   self.selectMapper = function (mapper) {
 console.log('selected', mapper);
     location.hash = mapper.folder;
+
+    // Load selected mapper
+
   };
 }
 

@@ -1,8 +1,8 @@
-var mapper = function (mapperName) {
-console.log('mapper', mapperName);
+var mapper = function (mapper) {
+console.log('mapper', mapper);
   },
   routes = {
-    '/:mapperName': mapper
+    '/:mapper': mapper
   },
   router = Router(routes);
 

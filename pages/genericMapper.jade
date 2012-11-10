@@ -1,22 +1,24 @@
 script(src="public/mvc/all.js")
 script(src="public/routes/all.js")
-.navbar.navbar-fixed-top
+.navbar
   .navbar-inner
-    .container
-      a.brand(href="#") Mapper Maker
-      ul.nav
-        li.active
-          a(href="#") Home
-.container.paddingPush
+    a.brand(href="#") Mapper Maker
+    ul.nav
+      li.active
+        a(href="#") Home
+.container
   ul.breadcrumb
-    li.active Home
+    li
+      a(href="#") Home
+        span.divider /
+    li.active=mapperName
 section.container
   table.table.table-striped.table-hover
     thead
       tr
         th Mapper
         th Contributions
-        th Last Updated
+        th Last Updatea`
     tbody(data-bind="foreach: mappers")
       tr.actionable(data-bind="click: $root.selectMapper")
         td(data-bind="text: mapperName")
