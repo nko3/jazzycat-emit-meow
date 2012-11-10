@@ -8,6 +8,7 @@ function Mapper (data, parent) {
   self.folder = data.folder;
   self.select = function () {
     location.hash = self.folder;
+    parent.selectedMapper(self);
   };
 }
 
@@ -38,6 +39,8 @@ function MapperViewModel () {
   ].map(function (data) {
     return new Mapper(data, self);
   }));
+
+  self.selectedMapper = ko.observable();
 }
 
 mapperViewModel = new MapperViewModel();
