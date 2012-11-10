@@ -1,10 +1,10 @@
 script(type="text/html", id="mapper-template")
-  <h3 data-bind="text: mapperName"></h3>
+  <h2 data-bind="text: mapperName"></h2>
   <p>Updated: <span data-bind="text: lastUpdated"></span></p>
 script(type="text/html", id="breadcrumb-template")
   <ul class="breadcrumb">
   <li><a data-bind="click: deselect" href="#">Home</a><span class="divider">/</span></li>
-  <li><a data-bind="text: mapperName" class="active"></a></li>
+  <li><span data-bind="text: mapperName" class="active"></span></li>
   </ul>
 script(src="public/mvc/all.js")
 .navbar.navbar-fixed-top
@@ -17,10 +17,12 @@ script(src="public/mvc/all.js")
       .nav-collapse.collapse.navbar-responsive-collapse
         form.navbar-search.pull-right
           input.search-query.span2(type="text", placeholder="Search")
-.container.paddingPush(data-bind="if: selectedMapper()")
+.container.paddingPush(data-bind="if: selectedMapper")
   div(data-bind="template: { name: 'breadcrumb-template', data: selectedMapper }")
-section.container
-  table.table.table-striped.table-hover(data-bind="if: !selectedMapper()")
+  section.container
+    .mapper(data-bind="template: { name: 'mapper-template', data: selectedMapper }")
+section.container(data-bind="if: !selectedMapper()")
+  table.table.table-striped.table-hover
     thead
       tr
         th Mapper
@@ -31,5 +33,3 @@ section.container
         td(data-bind="text: mapperName")
         td(data-bind="text: contributions")
         td(data-bind="text: lastUpdated")
-  div(data-bind="if: selectedMapper")
-    .mapper(data-bind="template: { name: 'mapper-template', data: selectedMapper }")
