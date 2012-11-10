@@ -14,8 +14,8 @@ describe('main', function () {
       appViewModel.mappers.should.exist;
     });
 
-    it('should be an array', function () {
-      appViewModel.mappers.should.be.a('array');
+    it('should be an observable array', function () {
+      appViewModel.mappers().should.be.a('array');
     });
   });
 });
