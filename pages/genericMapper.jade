@@ -1,5 +1,4 @@
 script(src="public/mvc/all.js")
-script(src="public/routes/all.js")
 .navbar
   .navbar-inner
     a.brand(href="#") Mapper Maker
@@ -18,7 +17,7 @@ section.container
       tr
         th Mapper
         th Contributions
-        th Last Updatea`
+        th Last Updated
     tbody(data-bind="foreach: mappers")
       tr.actionable(data-bind="click: $root.selectMapper")
         td(data-bind="text: mapperName")

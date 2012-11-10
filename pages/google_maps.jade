@@ -1,9 +1,4 @@
-div#map
-style
-  #map {
-    height: 300px;
-  }
-
+div#map.map
 script
   var SF = {'lat': 37.7750, 'lng': -122.4183},
       SAN_JOSE = {'lat': 37.3041, 'lng': -121.8727},
@@ -29,19 +24,19 @@ script
   //     // ZANZIBAR
   //   ]
   // });
-  // 
+  //
   // var southWest = new google.maps.LatLng(SF.lat,SF.lng);
   // var northEast = new google.maps.LatLng(SAN_JOSE.lat,SAN_JOSE.lng);
   // var bounds = new google.maps.LatLngBounds(southWest,northEast);
-  // 
+  //
   // map.map.fitBounds(bounds);
-  
+
   var url = new GMaps({
     div: '#map',
     lat: -12.043333,
     lng: -77.028333
   });
-  
+
   url.addMarker({lat: -12.043333, lng: -77.028333});
   url.addMarker({lat: -12.045333, lng: -77.034, size: 'small'});
   url.addMarker({lat: -12.045633, lng: -77.022, color: 'blue'});
