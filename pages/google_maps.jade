@@ -33,7 +33,7 @@ script
     lng: SF.lng
   });
 
-  // Break all pass-by-objects to avoid GMaps deletion of cities
+  // DEV: Break all pass-by-objects to avoid GMaps deletion of cities
   locations = JSON.parse(JSON.stringify(locations));
 
   // Render locations to markers
@@ -42,21 +42,24 @@ script
     return marker;
   });
 
-  // // Adjust the zoom to all markers
-  // map.fitLatLngBounds(locations);
+  // Grab marker positions
+  var markerPositions = markers.map('getPosition');
+  console.log(markerPositions);
 
-  function a(latLngs) {
-    var total = latLngs.length;
-    var bounds = new google.maps.LatLngBounds();
-    console.log(latLngs);
-    for(var i=0; i < total; i++) {
-      console.log(latLngs[i]);
-      bounds.extend(latLngs[i]);
-    }
+  // Adjust the zoom to all markers
+  map.fitLatLngBounds(markerPositions);
 
-    return bounds;
-  }
-  console.log(a.call(map, locations));
+  // function a(latLngs) {
+  //   var total = latLngs.length;
+  //   var bounds = new google.maps.LatLngBounds();
+  //   for(var i=0; i < total; i++) {
+  //     console.log(latLngs[i].getPosition());
+  //     bounds.extend(latLngs[i].getPosition());
+  //   }
+  //
+  //   return bounds;
+  // }
+  // console.log(a.call(map, markers));
 
   // // Create a marker clusterer on the locations
   // var mcOptions = {gridSize: 50, maxZoom: 15},
