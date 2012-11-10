@@ -36,7 +36,8 @@ script
   // 
   // map.map.fitBounds(bounds);
   
-  var url = GMaps.staticMapURL({
+  var url = new GMaps({
+    div: '#map',
     lat: -12.043333,
     lng: -77.028333,
     markers: [
@@ -47,8 +48,5 @@ script
         color: 'blue'}
     ]
   });
-
-  $('<img/>').attr('src', url)
-    .appendTo('#map');
 
   // map.fitZoom();
