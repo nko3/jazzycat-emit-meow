@@ -3,4 +3,5 @@ test/chaiShould.js
 public/js/knockout.js
 public/js/bootstrap.js
 public/js/jquery.js
+public/js/sugar.js
 dist
