@@ -1,3 +1,8 @@
+div#map
+style
+  #map {
+    height: 300px;
+  }
 script
   var SF = {'lat': '37.7750N', 'long': '122.4183W'},
       SAN_JOSE = {'lat': '37.3041N', 'long': '121.8727W'},
@@ -10,5 +15,8 @@ script
 
   ];
 
-  console.log('hello world!');
-p content
+  new GMaps({
+    div: '#map',
+    lat: -12.043333,
+    lng: -77.028333
+  });
