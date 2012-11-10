@@ -7,7 +7,7 @@ function Mapper (data, parent) {
   self.lastUpdated = new Date();
   self.folder = data.folder;
   self.select = function () {
-    location.hash = self.mapperName;
+    location.hash = self.folder;
   };
 }
 
