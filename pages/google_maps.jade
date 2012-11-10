@@ -14,28 +14,50 @@ script
       ZANZIBAR = {'lat': -6.1333, 'lng': 39.3167},
       SHANGHAI = {'lat': 31.2000, 'lng': 121.5000};
 
-  // Populate the list of locations with our cities (stub data)
-  var locations = [
-    SF,
-    SAN_JOSE,
-    NYC,
-    LONDON,
-    MOSCOW,
-    ZANZIBAR,
-    SHANGHAI
-  ];
+  if (false) {
+    // Populate the list of locations with our cities (stub data)
+    var locations = [
+      SF,
+      SAN_JOSE,
+      NYC,
+      LONDON,
+      MOSCOW,
+      ZANZIBAR,
+      SHANGHAI
+    ];
 
-  // Generate our map
-  var map = new GMaps({
-    div: '#map',
-    lat: 37.3041,
-    lng: -121
-  });
+    // Generate our map
+    var map = new GMaps({
+      div: '#map',
+      lat: 37.3041,
+      lng: -121
+    });
 
-  // Add in each location
-  locations.forEach(function (location) {
-    map.addMarker(location);
-  });
+    // Add in each location
+    locations.forEach(function (location) {
+      map.addMarker(location);
+    });
 
-  // Adjust the zoom to all markers
-  map.fitZoom();
+    // Adjust the zoom to all markers
+    map.fitZoom();
+  } else {
+    // Populate the list of locations with our cities (stub data)
+    var locations = [
+      SF,SF,SF,SF,SF,SF,SF,SF,SF,SF,SF,SF,SF,SF
+    ];
+
+    // Generate our map
+    var map = new GMaps({
+      div: '#map',
+      lat: SF.lat,
+      lng: SF.lng
+    });
+
+    // Add in each location
+    locations.forEach(function (location) {
+      map.addMarker(location.clone());
+    });
+
+    // Adjust the zoom to all markers
+    map.fitZoom();
+  }
