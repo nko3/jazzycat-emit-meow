@@ -4987,6 +4987,13 @@ a.badge:hover {
 .affix {
   position: fixed;
 }
+body {
+  position: relative;
+  padding-top: 40px;
+}
+.paddingPush {
+  padding-top: 40px;
+}
 .actionable {
   cursor: pointer;
 }

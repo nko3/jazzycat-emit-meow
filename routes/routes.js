@@ -1,8 +1,15 @@
-var mapper = function (mapperName) {
-console.log('mapper', mapperName);
+var mapper = function (mapper) {
+    // should be removed and replaced with a knockoutjs solution
+    // something like http://jsfiddle.net/rniemeyer/xVxKD/
+
+    var $breadcrumb = $('.breadcrumb');
+
+    // Update breadcrumb
+
+    // Load selected mapper
   },
   routes = {
-    '/:mapperName': mapper
+    '/:mapper': mapper
   },
   router = Router(routes);
 

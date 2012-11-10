@@ -1,3 +1,4 @@
+/*jshint es5:true*/
 var express = require('express'),
     env = process.env.NODE_ENV,
     inProduction = env === 'production',
@@ -5,8 +6,8 @@ var express = require('express'),
     app = express.createServer();
 
 // Lactate servers for gzipping? (recommendation by Henry)
-app.use('/public', express['static'](__dirname + '/dist'));
-app.use('/public', express['static'](__dirname + '/public'));
+app.use('/public', express.static(__dirname + '/dist'));
+app.use('/public', express.static(__dirname + '/public'));
 
 // Pages is the server views dir
 app.set('views', __dirname + '/pages');

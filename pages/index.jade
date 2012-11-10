@@ -1,12 +1,16 @@
 script(src="public/mvc/all.js")
 script(src="public/routes/all.js")
-.navbar
+.navbar.navbar-fixed-top
   .navbar-inner
-    a.brand(href="#") Mapper Maker
-    ul.nav
-      li.active
-        a(href="#") Home
-.container
+    .container
+      a.brand(href="#") Mapper Maker
+      ul.nav
+        li.active
+          a(href="#") Home
+      .nav-collapse.collapse.navbar-responsive-collapse
+        form.navbar-search.pull-right
+          input.search-query.span2(type="text", placeholder="Search")
+.container.paddingPush
   ul.breadcrumb
     li.active Home
 section.container
@@ -17,7 +21,7 @@ section.container
         th Contributions
         th Last Updated
     tbody(data-bind="foreach: mappers")
-      tr.actionable(data-bind="click: $root.selectMapper")
+      tr.actionable(data-bind="click: select")
         td(data-bind="text: mapperName")
         td(data-bind="text: contributions")
         td(data-bind="text: lastUpdated")

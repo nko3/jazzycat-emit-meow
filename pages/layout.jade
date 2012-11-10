@@ -5,7 +5,13 @@ html
     link(href="/public/css/all.css",rel="stylesheet")
     script(src="//maps.google.com/maps/api/js?sensor=true")
     script(src="/public/js/all.js")
-
+    script
+      $(function () {
+        $('.cat').popover({
+          'trigger': 'hover',
+          'placement': 'left'
+        });
+      });
     // If we are in development, start up a health monitor
     if (process.env.NODE_ENV !== 'production')
       script
@@ -44,4 +50,4 @@ html
         });
   body
     != body
-    img.cat(src="/public/img/jazzycat.png")
+    img.cat(src="/public/img/jazzycat.png", rel="popover", data-content="Meowwwww.", data-original-title="jazzycat says")
