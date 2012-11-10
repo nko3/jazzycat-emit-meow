@@ -53,9 +53,12 @@ script
       lng: SF.lng
     });
 
+    // Break all pass-by-objects to avoid GMaps deletion of cities
+    locations = JSON.parse(JSON.stringify(locations));
+
     // Add in each location
     locations.forEach(function (location) {
-      map.addMarker(location.clone());
+      map.addMarker(location);
     });
 
     // Adjust the zoom to all markers
