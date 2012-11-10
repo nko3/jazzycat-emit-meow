@@ -16,16 +16,24 @@ script
 
   ];
 
-  var a = new GMaps({
+  var map = new GMaps({
     div: '#map',
     lat: 37.3041,
-    lng: -121
-    // markers: [
-    //   // SF,
-    //   // SAN_JOSE,
-    //   // NYC,
-    //   // LONDON,
-    //   // MOSCOW,
-    //   // ZANZIBAR
-    // ]
+    lng: -121,
+    markers: [
+      SF,
+      SAN_JOSE,
+      NYC
+      // LONDON,
+      // MOSCOW,
+      // ZANZIBAR
+    ]
   });
+
+  var southWest = new google.maps.LatLng(SF.lat,SF.lng);
+  var northEast = new google.maps.LatLng(SAN_JOSE.lat,SAN_JOSE.lng);
+  var bounds = new google.maps.LatLngBounds(southWest,northEast);
+
+  map.map.fitBounds(bounds);
+
+  // map.fitZoom();
