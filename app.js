@@ -27,6 +27,19 @@ app.get('/google_maps', function (req, res) {
   res.render('google_maps');
 });
 
+// Health page (attribution to dshaw)
+var pkg = require('./package.json');
+    version = pkg.version;
+app.get('/health', function (req, res) {
+  var health = {
+    'version': pkg.version,
+    'pid': process.pid,
+    'memory': process.memoryUsage(),
+    'uptime': process.uptime()
+  };
+  res.send(health);
+});
+
 // Begin listening and log accordingly
 app.listen(8080);
 console.log('Server running at http://localhost:8080/');
