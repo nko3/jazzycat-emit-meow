@@ -8,12 +8,6 @@ app.use('/public', lactate['static'](__dirname + '/public'));
 
 // Pages is the server views dir
 app.set('views', __dirname + '/pages');
-
-// TODO: Deal with layout.html
-app.set('view options', {
-  layout: false
-});
-
 app.set('view engine', 'jade');
 
 // Send down index.html
