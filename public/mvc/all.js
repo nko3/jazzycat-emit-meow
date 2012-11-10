@@ -1,10 +1,10 @@
-var appViewModel;
+var mapperViewModel;
 
 function now () {
   return new Date();
 }
 
-function AppViewModel () {
+function MapperViewModel () {
   var self = this;
   // Non-editable catalog data - would come from the server
   self.mappers =  ko.observableArray([
@@ -15,10 +15,10 @@ function AppViewModel () {
   ]);
 }
 
-appViewModel = new AppViewModel();
+mapperViewModel = new MapperViewModel();
 
 
 
 $(function() {
-  ko.applyBindings(appViewModel);
+  ko.applyBindings(mapperViewModel);
 });
