@@ -1,6 +1,14 @@
 /*jshint expr:true*/
 /*globals $, mapperViewModel*/
 var baseUrl = 'http://jazzycat-emit-meow-api.nko3.jit.su';
+
+function get (url, cb) {
+  return $.get(baseUrl + url, cb, 'json');
+}
+
+function post (url, data, cb) {
+  return $.post(baseUrl + url, data, cb, 'json');
+}
 describe('api', function () {
   describe('mappers', function () {
     it('should start empty', function () {
@@ -16,59 +24,57 @@ describe('api', function () {
   });
 
   describe('get /', function () {
-    it('should return an array', function (done) {
-      $.get(baseUrl + '/', function (data) {
+    it('should give commands', function (done) {
+      get('/', function (data) {
+        data.search.should.exist;
+        done();
+      });
+    });
+  });
+
+  describe('get /contribution', function () {
+    it('should give contribs', function (done) {
+      get('/contribution', function (data) {
         data.should.be.a('array');
         done();
-      }, 'json');
+      });
     });
   });
 
-  describe('get /test', function () {
-    it('should return an array', function (done) {
-      $.get(baseUrl + '/test', function (data) {
+  describe('get /contribution/:keyword', function () {
+    it('should give contribs', function (done) {
+      get('/contribution/test', function (data) {
         data.should.be.a('array');
         done();
-      }, 'json');
+      });
     });
   });
 
-  describe('post /test{{random}}', function () {
-    it('should return an object', function (done) {
-      $.post(baseUrl + '/test' + (Math.random()), {}, function (data) {
-        data.should.be.a('object');
-        done();
-      }, 'json');
-    });
-  });
-
-  describe('post /test/node/', function () {
-    it('should return an object', function (done) {
-      $.post(baseUrl + '/test/node/', {
-        lat: 3.4,
-        long: 5.6,
+  describe('post /contribution', function () {
+    it('should give an id', function (done) {
+      post('/contribution', {
+        lat: 4.5,
+        lng: 3.2,
+        keywords: [
+          'test',
+          'api'
+        ],
         meta: {
           test: true
         }
       }, function (data) {
-        data.should.be.a('object');
+        data.id.should.exist;
         done();
-      }, 'json');
+      });
     });
   });
 
-  describe('post /test/contribution/', function () {
-    it('should return an object', function (done) {
-      $.post(baseUrl + '/test/contribution/', {
-        lat: 3.4,
-        long: 5.6,
-        meta: {
-          test: true
-        }
-      }, function (data) {
-        data.should.be.a('object');
+  describe('get /keyword', function () {
+    it('should give keywords', function (done) {
+      get('/keyword', function (data) {
+        data.should.be.a('array');
         done();
-      }, 'json');
+      });
     });
   });
 });
