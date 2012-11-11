@@ -14,3 +14,4 @@ function getCoordinates(cb) {
     cb(1);
   }
 }
+window.getCoordinates = getCoordinates;
