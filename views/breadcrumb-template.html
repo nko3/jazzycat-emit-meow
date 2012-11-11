@@ -1,6 +1,16 @@
 <script type="text/html" id="breadcrumb-template">
   <ul class="breadcrumb">
-    <li><a data-bind="click: deselect" href="#">Home</a><span class="divider">/</span></li>
-    <li><span data-bind="text: mapperName" class="active"></span></li>
+    <li>
+      <span data-bind="if: !mapperName">
+        <span class="active">Home</span>
+      </span>
+      <span data-bind="if: mapperName">
+        <a data-bind="click: deselect" href="#">Home</a>
+      </span>
+    </li>
+    <li data-bind="if: mapperName">
+      <span class="divider">/</span>
+      <span data-bind="text: mapperName" class="active"></span>
+    </li>
   </ul>
 </script>
