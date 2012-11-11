@@ -1,36 +1,40 @@
-script(type="text/html", id="mapper-template")
-  <h2 data-bind="text: mapperName"></h2>
-  <p>Updated: <span data-bind="text: lastUpdated"></span></p>
-script(type="text/html", id="breadcrumb-template")
-  <ul class="breadcrumb">
-  <li><a data-bind="click: deselect" href="#">Home</a><span class="divider">/</span></li>
-  <li><span data-bind="text: mapperName" class="active"></span></li>
-  </ul>
-script(src="public/mvc/all.js")
-.navbar.navbar-fixed-top
-  .navbar-inner
-    .container
-      a.brand(href="#") Mapper Maker
-      ul.nav
-        li.active
-          a(href="#") Home
-      .nav-collapse.collapse.navbar-responsive-collapse
-        form.navbar-search.pull-right
-          input.search-query.span2(type="text", placeholder="Search")
-.container.paddingPush(data-bind="if: selectedMapper")
-  div(data-bind="template: { name: 'breadcrumb-template', data: selectedMapper }")
-  section.container
-    .mapper(data-bind="template: { name: 'mapper-template', data: selectedMapper }")
-section.container(data-bind="if: !selectedMapper()")
-  button.btn.btn-success.pull-right(data-bind="click: createMapper") New Mapper
-  table.table.table-striped.table-hover
-    thead
-      tr
-        th Mapper
-        th Contributions
-        th Last Updated
-    tbody(data-bind="foreach: mappers")
-      tr.actionable(data-bind="click: select")
-        td(data-bind="text: mapperName")
-        td(data-bind="text: contributions")
-        td(data-bind="text: lastUpdated")
+.container(data-bind="if: !user()")
+  h2 Mapper Maker
+  a.btn.btn-large.btn-primary(href="https://www.dailycred.com/oauth/gateway?client_id=a17d7abb-849a-4fd1-ad9c-eff1eaf0cfb0&response_type=token") Login
+div(data-bind="if: user")
+  script(type="text/html", id="mapper-template")
+    <h2 data-bind="text: mapperName"></h2>
+    <p>Updated: <span data-bind="text: lastUpdated"></span></p>
+  script(type="text/html", id="breadcrumb-template")
+    <ul class="breadcrumb">
+    <li><a data-bind="click: deselect" href="#">Home</a><span class="divider">/</span></li>
+    <li><span data-bind="text: mapperName" class="active"></span></li>
+    </ul>
+  script(src="public/mvc/all.js")
+  .navbar.navbar-fixed-top
+    .navbar-inner
+      .container
+        a.brand(href="#") Mapper Maker
+        ul.nav
+          li.active
+            a(href="#") Home
+        .nav-collapse.collapse.navbar-responsive-collapse
+          form.navbar-search.pull-right
+            input.search-query.span2(type="text", placeholder="Search")
+  .container.paddingPush(data-bind="if: selectedMapper")
+    div(data-bind="template: { name: 'breadcrumb-template', data: selectedMapper }")
+    section.container
+      .mapper(data-bind="template: { name: 'mapper-template', data: selectedMapper }")
+  section.container(data-bind="if: !selectedMapper()")
+    button.btn.btn-success.pull-right(data-bind="click: createMapper") New Mapper
+    table.table.table-striped.table-hover
+      thead
+        tr
+          th Mapper
+          th Contributions
+          th Last Updated
+      tbody(data-bind="foreach: mappers")
+        tr.actionable(data-bind="click: select")
+          td(data-bind="text: mapperName")
+          td(data-bind="text: contributions")
+          td(data-bind="text: lastUpdated")
