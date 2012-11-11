@@ -54,7 +54,7 @@ function MapperViewModel () {
   self.filteredMappers = ko.computed(function () {
     var filtered = [];
     if (!self.mappers() && !self.mappers().length) {
-      return filtered;
+      return filtered.push(filtered);
     }
     self.mappers().forEach(function (element) {
       filtered.push(element);
