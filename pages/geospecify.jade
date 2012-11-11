@@ -36,11 +36,9 @@ script
 
     // Helper method to update coordinates
     function updateCoords(coords) {
-      // var latLng = new google.maps.LatLng(coords.lat, coords.lng);
-      // marker.setPosition(latLng);
-      console.log(coords);
-      // map.setCenter(coords);
-      map.setCenter(JOYENT.lat, JOYENT.lng);
+      var latLng = new google.maps.LatLng(coords.lat, coords.lng);
+      map.setCenter(coords.lat, coords.lng);
+      marker.setPosition(latLng);
     }
 
     // Output the current location
@@ -54,13 +52,10 @@ script
       // If there are coordinates, update the map to them
       if (coords) {
         // Set coordinates of map
-        // updateCoords({
-        //   'lat': coords.latitude,
-        //   'lng': coords.longitude
-        // });
+        updateCoords({
+          'lat': coords.latitude,
+          'lng': coords.longitude
+        });
       }
     });
-    
-    // Update the coordinates
-    updateCoords();
   });
