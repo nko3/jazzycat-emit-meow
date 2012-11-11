@@ -219,40 +219,38 @@
       <div id="geospecify-map" class="google-maps">Loading map...</div>
       <form id="addressForm">
         <!-- TODO: Autocomplete for address as they type it in?-->
-        <div class="input-append">
-          <input id="address" type="text" placeholder="1 Embarcadero Center, San Francisco, CA 94111" />
-          <button type="submit" class="btn">Update address</button>
+        <div class="input-append" style="margin-top: 5px;">
+          <input id="address" type="text" style="width: 400px;" placeholder="1 Embarcadero Center, San Francisco, CA 94111" />
+          <button type="submit" class="btn" style="width: 117px;">Update address</button>
+        </div>
+        <div class="row">
+          <div class="span3">
+            <span>Latitude: </span>
+            <span id="lat" style="padding-top: 5px;">Fetching...</span>
+          </div>
+          <div class="span3">
+            <span>Longitude: </span>
+            <span id="lng" style="padding-top: 5px;">Fetching...</span>
+          </div>
         </div>
       </form>
       <form class="form-horizontal">
         <div class="control-group">
-          <label class="control-label" for="lat">Latitude</label>
-          <div class="controls">
-            <label id="lat" style="padding-top: 5px;">Fetching...</label>
-          </div>
-        </div>
-        <div class="control-group">
-          <label class="control-label" for="lng">Longitude</label>
-          <div class="controls">
-            <label id="lng" style="padding-top: 5px;">Fetching...</label>
-          </div>
-        </div>
-        <div class="control-group">
           <label class="control-label" for="keywords">Keywords</label>
           <div class="controls">
-            <input type="text" id="keywords" placeholder="cat, feline, meow">
+            <input type="text" id="keywords" class="input-block-level" placeholder="cat, feline, meow">
           </div>
         </div>
         <div class="control-group">
           <label class="control-label" for="url">URL (Optional)</label>
           <div class="controls">
-            <input type="text" id="url" placeholder="URL">
+            <input type="text" id="url" class="input-block-level" placeholder="http://p.twimg.com/JazzyCatMeow.jpg">
           </div>
         </div>
         <div class="control-group">
           <label class="control-label" for="desc">Description (Optional)</label>
           <div class="controls">
-            <input type="text" id="desc" placeholder="My cat, jazzycat. meow.">
+            <input type="text" id="desc" class="input-block-level" placeholder="My cat, jazzycat. meow.">
           </div>
         </div>
       </form>
@@ -427,6 +425,7 @@ function normalizeLat(lat) {
 window.properLat = function (lat) {
   // Fallback lat
   if (lat === undefined) { lat = window.lat; }
+
   // Convert lat to a number and determine direction
   var latNum = +lat,
       isNonNegative = latNum >= 0,
