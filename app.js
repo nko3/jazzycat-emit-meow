@@ -35,6 +35,9 @@ app.get('/', function (req, res) {
   app.get('/mapper_view', function (req, res) {
     res.render('mapper_view');
   });
+  app.get('/api_docs', function (req, res) {
+    res.render('api_docs');
+  });
 // }
 
 // Health page (attribution to dshaw)

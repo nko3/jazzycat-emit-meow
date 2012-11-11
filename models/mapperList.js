@@ -62,12 +62,13 @@ function MapperViewModel () {
   self.gotoMappers = function () {
     location.hash = '/';
     self.selectedMapper(null);
+    self.viewingAPI(null);
   };
   
   self.gotoAPI = function () {
     location.hash = 'api';
     self.selectedMapper(null);
-    // TODO: Navigate to API
+    self.viewingAPI(new API({}, self));
   };
 }
 

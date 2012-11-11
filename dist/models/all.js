@@ -62,12 +62,13 @@ function MapperViewModel () {
   self.gotoMappers = function () {
     location.hash = '/';
     self.selectedMapper(null);
+    self.viewingAPI(null);
   };
   
   self.gotoAPI = function () {
     location.hash = 'api';
     self.selectedMapper(null);
-    // TODO: Navigate to API
+    self.viewingAPI(new API({}, self));
   };
 }
 
@@ -142,6 +143,9 @@ function Geospecify(data) {
   this.submit = function () {
     console.log('zzxz', arguments);
   };
+}
+function API(data, parent) {
+
 }
 function Contribution (data, parent) {
   var self = this;
