@@ -25,8 +25,8 @@ module.exports = function(grunt) {
       },
       'mvc': {
         src: [
-          'mvc/mapperList.js',
-          'mvc/*.js'
+          'models/mapperList.js',
+          'models/*.js'
         ],
         dest: 'dist/mvc/all.js'
       }
