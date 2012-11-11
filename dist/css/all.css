@@ -5005,3 +5005,6 @@ body {
 .map {
   height: 300px;
 }
+.modal-body .map {
+  width: 530px;
+}
