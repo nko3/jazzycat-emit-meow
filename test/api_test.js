@@ -35,7 +35,7 @@ describe('api', function () {
 
   describe('post /test{{random}}', function () {
     it('should return an object', function (done) {
-      $.post(baseUrl + '/test', {}, function (data) {
+      $.post(baseUrl + '/test' + (Math.random()), {}, function (data) {
         data.should.be.a('object');
         done();
       });
