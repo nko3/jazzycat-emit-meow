@@ -5,7 +5,9 @@
   </ul>
 </script>
 <div data-bind="if: !user()" class="container">
-  <h2>Mapper Maker</h2><a href="https://www.dailycred.com/oauth/gateway?client_id=a17d7abb-849a-4fd1-ad9c-eff1eaf0cfb0&amp;response_type=token" class="btn btn-large btn-primary">Login</a>
+  <h2>Mapper Maker</h2>
+  <a href="https://www.dailycred.com/oauth/gateway?client_id=a17d7abb-849a-4fd1-ad9c-eff1eaf0cfb0&amp;response_type=token"
+    class="btn btn-large btn-primary">Login</a>
 </div>
 <div data-bind="if: user">
   <script src="public/models/all.js"></script>
@@ -17,20 +19,30 @@
         </ul>
         <div class="nav-collapse collapse navbar-responsive-collapse">
           <form class="navbar-search pull-right">
-            <input type="text" placeholder="Search" class="search-query span2"/>
+            <input
+              type="text"
+              placeholder="Search"
+              class="search-query span2">
           </form>
         </div>
       </div>
     </div>
   </div>
   <div data-bind="if: selectedMapper" class="container paddingPush">
-    <div data-bind="template: { name: 'breadcrumb-template', data: selectedMapper }"></div>
+    <div data-bind="template: {
+      name: 'breadcrumb-template',
+      data: selectedMapper
+    }"></div>
     <section class="container">
-      <div data-bind="template: { name: 'mapper-template', data: selectedMapper }" class="mapper"></div>
+      <div data-bind="template: {
+        name: 'mapper-template',
+        data: selectedMapper
+      }" class="mapper"></div>
     </section>
   </div>
   <section data-bind="if: !selectedMapper()" class="container">
-    <button data-bind="click: createMapper" class="btn btn-success pull-right">New Mapper</button>
+    <button data-bind="click: createMapper"
+      class="btn btn-success pull-right">New Mapper</button>
     <table class="table table-striped table-hover">
       <thead>
         <tr>
