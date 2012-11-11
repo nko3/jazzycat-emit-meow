@@ -31,7 +31,10 @@ script
     var marker = map.addMarker({
       'lat': DEFAULT.lat,
       'lng': DEFAULT.lng,
-      'draggable': true
+      'draggable': true,
+
+      // When it is done being dragged, output location updated
+      'dragend': onDragend
     });
 
     // Helper method to update coordinates
@@ -39,12 +42,20 @@ script
       var latLng = new google.maps.LatLng(coords.lat, coords.lng);
       map.setCenter(coords.lat, coords.lng);
       marker.setPosition(latLng);
+
+      // Output the location
+      outputLocation();
+    }
+
+    // When the location is updated via the map, output it
+    function onDragend() {
+      outputLocation();
     }
 
     // Output the current location
     function outputLocation() {
       var position = marker.getPosition();
-      $geoOutput.text('Latitude: ' + position.lat + ', Longitude: ' + position.lng);
+      $geoOutput.text('Latitude: ' + position.lat() + ', Longitude: ' + position.lng());
     }
 
     // Get the coordinates
