@@ -45,8 +45,9 @@ function MapperViewModel () {
   }));
 
   self.selectedMapper = ko.observable();
-  self.createMapper = function (data) {// TODO: Pass in data
-    self.mappers.push(new Mapper(data, self));
+  self.createMapper = function () {
+    // TODO: Gather data for creation of new mapper
+    self.mappers.push(new Mapper({}, self));
   };
   self.user = ko.observable();
 }
