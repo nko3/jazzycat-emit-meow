@@ -68,6 +68,8 @@ data = {
         function norm(a) {
           if (typeof a === 'object') {
             return JSON.stringify(a, null, 4);
+          } else if (a) {
+            return a;
           }
           return '';
         }

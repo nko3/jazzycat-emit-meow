@@ -9,9 +9,19 @@
       <h4 data-bind="text: name"></h4>
       <p data-bind="text: url"></p>
       <p data-bind="text: description"></p>
-      <p data-bind="text: example_request"></p>
-      <p data-bind="text: response_template"></p>
-      <p data-bind="text: post_body_template"></p>
+      <div data-bind="if: example_request">
+        <strong>Example Request:</strong>
+        <span data-bind="text: example_request"></span>
+      </div>
+      <div data-bind="if: response_template">
+        <strong>Response Template:</strong>
+        <span data-bind="text: response_template"></span>
+      </div>
+      <div data-bind="if: post_body_template">
+        <strong>Post Body Template:</strong>
+        <span data-bind="text: post_body_template"></span>
+      </div>
+      <br/>
     </div>
   </div>
 </script>
