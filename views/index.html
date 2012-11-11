@@ -76,13 +76,13 @@
         <div class="control-group">
           <label class="control-label" for="lat">Latitude</label>
           <div class="controls">
-            <label id="lat" style="padding-top: 5px;">37.7943446N</label>
+            <label id="lat" style="padding-top: 5px;">Fetching...</label>
           </div>
         </div>
         <div class="control-group">
           <label class="control-label" for="lng">Longitude</label>
           <div class="controls">
-            <label id="lng" style="padding-top: 5px;">122.399981W</label>
+            <label id="lng" style="padding-top: 5px;">Fetching...</label>
           </div>
         </div>
         <div class="control-group">
@@ -241,6 +241,36 @@ function loadGeoSpecify() {
   });
 }
 
+// Define latLngPadder
+function normalizeLat(lat) {
+  var latStr = lat + '';
+
+  // Guarantee a decimal place in the number
+  if (latStr.indexOf('.') === -1) {
+    latStr = latStr + '.';
+  }
+
+  // Pad out to 4 decimal places
+  latStr = latStr.replace(/(\.\d{0,3})$/, function (_, decimal) {
+    // Add on the missing amount of items
+    var decimalPlaces = decimal.length - 1,
+        i = 0,
+        len = 4 - decimalPlaces;
+    for (; i < len; i++) {
+      decimal += '0';
+    }
+    return decimal;
+  });
+
+  // Truncate off excess decimal places
+  latStr = latStr.replace(/(\.\d{4})\d*$/, function (_, decimal) {
+    return decimal;
+  });
+
+  // Return the latStr
+  return latStr;
+}
+
 // Define window.properLat and window.properLng
 window.properLat = function (lat) {
   // Fallback lat
@@ -253,7 +283,8 @@ window.properLat = function (lat) {
 
   // Get the absolute value and output it
   var absLat = Math.abs(latNum),
-      properLat = absLat + direction;
+      normalLat = normalizeLat(absLat),
+      properLat = normalLat + direction;
   return properLat;
 };
 
@@ -269,7 +300,8 @@ window.properLng = function (lng) {
 
   // Get the absolute value and output it
   var absLng = Math.abs(latNum),
-      properLng = absLng + direction;
+      normalLng = normalizeLat(absLng),
+      properLng = normalLng + direction;
   return properLng;
 }
 
