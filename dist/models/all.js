@@ -168,6 +168,7 @@ function Contribution (data, parent) {
   self.lng = data.lng;
   self.keywords = ko.observableArray(data.keywords);
   self.meta = ko.observable(data.meta || {});
+  self.metaStr = JSON.stringify(data.meta);
 }
 /*global mapperViewModel*/
 function User (data) {
