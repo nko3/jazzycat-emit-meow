@@ -156,12 +156,15 @@
       <div class="container">
         <a href="#" class="brand">Mapper Maker</a>
         <div class="nav-collapse collapse navbar-responsive-collapse">
-          <form class="navbar-search pull-right">
-            <input
-              type="text"
-              placeholder="Search"
-              class="search-query span2">
-          </form>
+          <div data-bind="if: !user()">
+            <a class="btn btn-primary pull-right"
+              href="https://www.dailycred.com/oauth/gateway?client_id=a17d7abb-849a-4fd1-ad9c-eff1eaf0cfb0&amp;response_type=token">Login to Contribute</a>
+          </div>
+          <div data-bind="if: user">
+            <button
+              class="btn btn-success pull-right"
+              data-bind="click: createMapper">Add Contribution</button>
+          </div>
         </div>
       </div>
     </div>
@@ -179,21 +182,16 @@
     </section>
   </div>
   <section data-bind="if: !selectedMapper()" class="container">
-    <div class="row">
-      <div class="span11" data-bind="template: {
-        name: 'breadcrumb-template',
-        data: {'mapperName': null}
-      }"></div>
-      <div data-bind="if: !user()" class="span1">
-        <a class="btn btn-primary pull-right"
-          href="https://www.dailycred.com/oauth/gateway?client_id=a17d7abb-849a-4fd1-ad9c-eff1eaf0cfb0&amp;response_type=token">Login</a>
-      </div>
-      <div data-bind="if: user" class="span1">
-        <button
-          class="btn btn-success pull-right"
-          data-bind="click: createMapper">New Mapper</button>
-      </div>
-    </div>
+    <div data-bind="template: {
+      name: 'breadcrumb-template',
+      data: {'mapperName': null}
+    }"></div>
+    <form class="form-search pull-right">
+      <input
+        type="text"
+        placeholder="Search mappers..."
+        class="input-medium search-query">
+    </form>
     <table class="table table-striped table-hover">
       <thead>
         <tr>
