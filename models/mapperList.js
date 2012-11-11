@@ -2,12 +2,9 @@ var mapperViewModel;
 
 function Mapper (data, parent) {
   var self = this;
-  self.mapperName = data.name;
+  self.mapperName = data.keyword;
   self.contribution_ids = data.contribution_ids;
-  self.numContributions = ko.computed(function () {
-    return self.contribution_ids &&
-      self.contribution_ids.length || 0;
-  });
+  self.numContributions = data.count || 0;
   self.lastUpdated = new Date();
   self.folder = data.name;
   self.select = function () {
