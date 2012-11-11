@@ -75,7 +75,8 @@ module.exports = function(grunt) {
         describe: true,
         it: true,
         ko: true,
-        $: true
+        $: true,
+        getCoordinates: true
       }
     }
   });
