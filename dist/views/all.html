@@ -224,18 +224,17 @@
           <button type="submit" class="btn">Update address</button>
         </div>
       </form>
-      <p id="geoOutput">Resolving location...</p>
       <form class="form-horizontal">
         <div class="control-group">
           <label class="control-label" for="lat">Latitude</label>
           <div class="controls">
-            <label style="padding-top: 5px;">37.7943446N</label>
+            <label id="lat" style="padding-top: 5px;">37.7943446N</label>
           </div>
         </div>
         <div class="control-group">
           <label class="control-label" for="lng">Longitude</label>
           <div class="controls">
-            <label style="padding-top: 5px;">122.399981W</label>
+            <label id="lng" style="padding-top: 5px;">122.399981W</label>
           </div>
         </div>
         <div class="control-group">
@@ -267,18 +266,19 @@
 <script>
 function loadGeoSpecify() {
   var JOYENT = {
-    'lat': 37.7943446,
-    'lng': -122.399981
-  },
-  NODEJITSU = {
-    'lat': 40.7142,
-    'lng': -74.0064
-  },
-  DEFAULT = NODEJITSU;
+        'lat': 37.7943446,
+        'lng': -122.399981
+      },
+      NODEJITSU = {
+        'lat': 40.7142,
+        'lng': -74.0064
+      },
+      DEFAULT = NODEJITSU;
 
   $(function () {
     // Grab the output
-    var $geoOutput = $('#geoOutput');
+    var $lat = $('#lat'),
+        $lng = $('#lng');
 
     // Generate our map
     var map = new GMaps({
@@ -322,8 +322,17 @@ function loadGeoSpecify() {
 
     // Output the current location
     function outputLocation() {
-      var position = marker.getPosition();
-      $geoOutput.text('Latitude: ' + position.lat() + ', Longitude: ' + position.lng());
+      var position = marker.getPosition(),
+          lat = position.lat(),
+          lng = position.lng();
+
+      // Update the latitude and longitude text
+      $lat.text(window.properLat(lat));
+      $lng.text(window.properLng(lng));
+
+      // Expose the latitude and longitude to window
+      window.lat = lat;
+      window.lng = lng;
     }
 
     // Get the coordinates
@@ -382,6 +391,38 @@ function loadGeoSpecify() {
       }]
     });
   });
+}
+
+// Define window.properLat and window.properLng
+window.properLat = function (lat) {
+  // Fallback lat
+  if (lat === undefined) { lat = window.lat; }
+
+  // Convert lat to a number and determine direction
+  var latNum = +lat,
+      isNonNegative = latNum >= 0,
+      direction = isNonNegative ? 'N' : 'S';
+
+  // Get the absolute value and output it
+  var absLat = Math.abs(latNum),
+      properLat = absLat + direction;
+  return properLat;
+};
+
+// Define window.properLng
+window.properLng = function (lng) {
+  // Fallback lng
+  if (lng === undefined) { lng = window.lng; }
+
+  // Convert lng to a number and determine direction
+  var latNum = +lng,
+      isNonNegative = latNum >= 0,
+      direction = isNonNegative ? 'E' : 'W';
+
+  // Get the absolute value and output it
+  var absLng = Math.abs(latNum),
+      properLng = absLng + direction;
+  return properLng;
 }
 
 // Bind to the contribution modal once the DOM is ready
