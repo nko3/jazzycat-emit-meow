@@ -80,7 +80,6 @@ function MapperViewModel () {
   };
 
   self.gotoAPI = function () {
-  console.log('aaaa');
     location.hash = 'api';
     self.selectedMapper(null);
     self.selectedAPI(new API({}, self));

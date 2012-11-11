@@ -1,10 +1,16 @@
 <script type="text/html" id="api-docs-template">
+  <p class="alert alert-info">
+    Our API exposes a <a href="http://en.wikipedia.org/wiki/Representational_state_transfer">RESTful</a>
+    list of commands for you to use via our service.
+  </p>
   <div data-bind="visible: routes().length === 0">Loading routes...</div>
   <div data-bind="visible: routes().length > 0">
     <div data-bind="foreach: routes()">
       <h4 data-bind="text: name"></h4>
       <p data-bind="text: url"></p>
       <p data-bind="text: description"></p>
+      <p data-bind="text: example_request"></p>
+      <p data-bind="text: response_template"></p>
       <p data-bind="text: post_body_template"></p>
     </div>
   </div>
