@@ -11,7 +11,8 @@
           <div data-bind="if: user">
             <button
               class="btn btn-success pull-right"
-              data-bind="click: createMapper">Add Contribution</button>
+              data-target="#contributionModal"
+              data-toggle="modal">Add Contribution</button>
           </div>
         </div>
       </div>
@@ -57,4 +58,17 @@
       </tbody>
     </table>
   </section>
+  <div id="contributionModal" class="modal hide top">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      <h3>Add Mapper Maker contribution</h3>
+    </div>
+    <div class="modal-body">
+      <p>Enter your contribution</p>
+    </div>
+    <div class="modal-footer">
+      <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+      <button class="btn btn-primary">Submit Contribtion</button>
+    </div>
+  </div>
 </script>
