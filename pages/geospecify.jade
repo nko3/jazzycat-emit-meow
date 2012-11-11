@@ -5,6 +5,12 @@ style
     width: 600px;
   }
 
+p
+  // TODO: Autocomplete for address as they type it in?
+  input#address(placeholder="1 Embarcadero Center, San Francisco, CA 94111")
+
+p#geoOutput Resolving location...
+
 script
   var JOYENT = {'lat': 37.7943446, 'lng': -122.399981};
 
@@ -13,11 +19,24 @@ script
     var $geoOutput = $('#geoOutput');
 
     // Generate our map
-    var n = new GMaps({
-      div: '#map',
-      lat: JOYENT.lat,
-      lng: JOYENT.lng
+    var map = new GMaps({
+      'div': '#map',
+      'lat': JOYENT.lat,
+      'lng': JOYENT.lng
     });
+
+    // Add a draggable location marker
+    var marker = map.addMarker({
+      'lat': JOYENT.lat,
+      'lng': JOYENT.lng,
+      'draggable': true
+    });
+
+    // Output the current location
+    function outputLocation() {
+      var position = marker.getPosition();
+      $geoOutput.text('Latitude: ' + position.lat + ', Longitude: ' + position.lng);
+    }
 
     // Get the coordinates
     getCoordinates(function (err, coords) {
@@ -25,7 +44,7 @@ script
       if (coords) {
         console.log('got coords', coords);
         // TODO: Set coordinates of map
-        // TODO: Convert keys to lat, lng
+        // TODO: Convert keys (latitude) to lat, lng
       }
     });
   });
