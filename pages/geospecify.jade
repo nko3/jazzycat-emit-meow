@@ -1,0 +1,31 @@
+div#map.google-maps
+style
+  #map {
+    height: 300px;
+    width: 600px;
+  }
+
+script
+  var JOYENT = {'lat': 37.7943446, 'lng': -122.399981};
+
+  $(function () {
+    // Grab the output
+    var $geoOutput = $('#geoOutput');
+
+    // Generate our map
+    var n = new GMaps({
+      div: '#map',
+      lat: JOYENT.lat,
+      lng: JOYENT.lng
+    });
+
+    // Get the coordinates
+    getCoordinates(function (err, coords) {
+      // If there are coordinates, update the map to them
+      if (coords) {
+        console.log('got coords', coords);
+        // TODO: Set coordinates of map
+        // TODO: Convert keys to lat, lng
+      }
+    });
+  });

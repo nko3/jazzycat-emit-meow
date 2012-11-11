@@ -29,6 +29,9 @@ app.get('/', function (req, res) {
   app.get('/geolookup', function (req, res) {
     res.render('geolookup');
   });
+  app.get('/geospecify', function (req, res) {
+    res.render('geospecify');
+  });
 // }
 
 // Health page (attribution to dshaw)
