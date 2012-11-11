@@ -10,6 +10,7 @@ function Mapper (data, parent) {
   // self.folder = data.keyword;
   self.select = function () {
     location.hash = '/' + self.mapperName;
+    self.contributions([]);
     $.getJSON('http://jazzycat-emit-meow-api.nko3.jit.su/contribution/' +
       self.mapperName,
       function (data, status) {
@@ -27,9 +28,6 @@ function Mapper (data, parent) {
     parent.selectedMapper(self);
   };
   self.deselect = function () {
-    location.hash = '/';
-    self.contributions([]);
-    parent.selectedMapper(null);
   };
 }
 
@@ -61,6 +59,17 @@ function MapperViewModel () {
     self.mappers.push(new Mapper({}, self));
   };
   self.user = ko.observable();
+  
+  self.gotoMappers = function () {
+    location.hash = '/';
+    self.selectedMapper(null);
+  };
+  
+  self.gotoAPI = function () {
+    location.hash = 'api';
+    self.selectedMapper(null);
+    // TODO: Navigate to API
+  };
 }
 
 window.mapperViewModel = new MapperViewModel();
