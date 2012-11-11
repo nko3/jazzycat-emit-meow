@@ -7,7 +7,6 @@ function Mapper (data, parent) {
   self.numContributions = data.count || 0;
   self.lastUpdated = new Date();
   self.contributions = ko.observableArray();
-  // self.folder = data.keyword;
   self.select = function () {
     location.hash = '/' + self.mapperName;
     $.getJSON('http://jazzycat-emit-meow-api.nko3.jit.su/contribution/' +
