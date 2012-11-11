@@ -3,7 +3,8 @@ div.
   <script>
     setTimeout(function () {
       // Click on the api button
-      var $apiLink = $('.navbar li').eq(1);
+      var $apiLink = $('.navbar li a').eq(1);
+      console.log($apiLink);
       $apiLink.click();
     }, 100);
   </script>

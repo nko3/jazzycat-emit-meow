@@ -71,17 +71,19 @@ function MapperViewModel () {
     self.mappers.push(new Mapper({}, self));
   };
   self.user = ko.observable();
+  self.selectedAPI = ko.observable();
 
   self.gotoMappers = function () {
     location.hash = '/';
     self.selectedMapper(null);
-    self.viewingAPI(null);
+    self.selectedAPI(null);
   };
 
   self.gotoAPI = function () {
+  console.log('aaaa');
     location.hash = 'api';
     self.selectedMapper(null);
-    self.viewingAPI(new API({}, self));
+    self.selectedAPI(new API({}, self));
   };
 
   self.search = ko.observable();
