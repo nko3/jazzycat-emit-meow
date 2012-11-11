@@ -6,9 +6,9 @@ function Mapper (data, parent) {
   self.contribution_ids = data.contribution_ids;
   self.numContributions = data.count || 0;
   self.lastUpdated = new Date();
-  self.folder = data.name;
+  // self.folder = data.keyword;
   self.select = function () {
-    location.hash = '/' + self.folder;
+    location.hash = '/' + self.mapperName;
     parent.selectedMapper(self);
   };
   self.deselect = function () {
