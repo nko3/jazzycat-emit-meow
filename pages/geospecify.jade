@@ -5,9 +5,10 @@ style
     width: 600px;
   }
 
-p
+form#addressForm
   // TODO: Autocomplete for address as they type it in?
   input#address(placeholder="1 Embarcadero Center, San Francisco, CA 94111")
+  button.btn(type="submit") Update address
 
 p#geoOutput Resolving location...
 
@@ -68,5 +69,17 @@ script
           'lng': coords.longitude
         });
       }
+    });
+
+    // When the form is submitted
+    $('#addressForm').on('submit', function (e) {
+      // Do not submit
+      e.preventDefault();
+
+      // Look up the address
+      console.log('Form submitted!');
+        // If there are results
+          // Pick the first one
+            // and update the map with it
     });
   });
