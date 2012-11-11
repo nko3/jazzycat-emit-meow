@@ -30,7 +30,7 @@ function MapperViewModel () {
   });
   // // DEV FOR ITEMS
   // setTimeout(function () {
-    // var data = [{'keyword': 'you', 'count': 20}, {'keyword': 'are', 'count': 10}, {'keyword': 'on', 'count': 3}, {'keyword': 'dev', 'count': 19}];
+    // var data = [{'name': 'you', 'count': 20}, {'name': 'are', 'count': 10}, {'name': 'on', 'count': 3}, {'name': 'dev', 'count': 19}];
     // console.log(data.length);
     // data.forEach(function (mapper) {
       // self.mappers.push(new Mapper(mapper, self));
