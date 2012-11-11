@@ -1,5 +1,6 @@
 <script type="text/html" id="api-docs-template">
-  Hello world
+  <div data-bind="visible: routes().length === 0">Loading routes...</div>
+  <div data-bind="visible: routes().length > 0">Routes loaded!</div>
 </script>
 <script type="text/html" id="breadcrumb-template">
   <ul class="breadcrumb">
