@@ -70,7 +70,8 @@
           <input
             type="text"
             placeholder="Search mappers..."
-            class="input-medium search-query">
+            class="input-medium search-query"
+            data-bind="value: search">
         </form>
       </div>
     </div>
@@ -82,7 +83,7 @@
           <th>Last Updated</th>
         </tr>
       </thead>
-      <tbody data-bind="foreach: mappers">
+      <tbody data-bind="foreach: filteredMappers">
         <tr data-bind="click: select" class="actionable">
           <td data-bind="text: mapperName"></td>
           <td data-bind="text: numContributions"></td>
