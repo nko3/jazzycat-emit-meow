@@ -1,4 +1,3 @@
-<script src="public/models/all.js"></script>
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
@@ -33,12 +32,12 @@
       data: {'mapperName': null}
     }"></div>
     <div data-bind="if: !user()" class="span1">
-      <a class="btn btn-large btn-primary pull-right"
+      <a class="btn btn-primary pull-right"
         href="https://www.dailycred.com/oauth/gateway?client_id=a17d7abb-849a-4fd1-ad9c-eff1eaf0cfb0&amp;response_type=token">Login</a>
     </div>
     <div data-bind="if: user" class="span1">
       <button
-        class="btn btn-large btn-success pull-right"
+        class="btn btn-success pull-right"
         data-bind="click: createMapper">New Mapper</button>
     </div>
   </div>
