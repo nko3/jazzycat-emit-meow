@@ -22,7 +22,8 @@ function Mapper (data, parent) {
 
 function MapperViewModel () {
   var self = this,
-    mappers = $.get('http://jazzycat-emit-meow-api.nko3.jit.su/', function (data, status) {
+    mappers = $.get('http://jazzycat-emit-meow-api.nko3.jit.su/',
+      function (data, status) {
       if(status === 'success') {
         console.log(data.length);
         data.forEach(function (mapper) {
