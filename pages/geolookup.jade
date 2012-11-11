@@ -1,24 +1,33 @@
 div#geoOutput Waiting for input...
 
 script
-  $(function () {
-    // Grab the output and the geolocation
-    var $geoOutput = $('#geoOutput'),
-        geolocation = window.navigator.geolocation;
+  // Asynchronous retrieval of coordinates
+  function getCoordinates(cb) {
+    // Grab geolocation from the navigator
+    var geolocation = window.navigator.geolocation;
 
     // If geolocation exists, start fetching location
     if (geolocation) {
-      $geoOutput.text('Geolocation available!! Requesting up your location...');
-
-      // Make a request for the current position
       geolocation.getCurrentPosition(function (position) {
-        var coords = position.coords;
-        $geoOutput.text('Geolocation found!! Lat: ' + coords.latitude + ' Lng: ' + coords.longitude);
-      }, function (err) {
-        $geoOutput.text('Geolocation could not be used =(');
-      });
+        cb(null, position.coords);
+      }, cb);
     } else {
-    // Otherwise, update geolookup
-      $geoOutput.text('Geolocation not available =(');
+    // Otherwise, callback with an error
+      cb(1);
     }
+  }
+
+  $(function () {
+    // Grab the output and the geolocation
+    var $geoOutput = $('#geoOutput');
+
+    getCoordinates(function (err, coords) {
+      // If there was an error, update the text accordingly
+      if (err) {
+        $geoOutput.text('Geolocation could not be used =(');
+      } else {
+      // Otherwise, output the coordinates
+        $geoOutput.text('Geolocation found!! Lat: ' + coords.latitude + ' Lng: ' + coords.longitude);
+      }
+    });
   });
