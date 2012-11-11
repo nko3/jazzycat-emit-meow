@@ -329,7 +329,9 @@ $('body').on('shown', '#contributionModal', loadGeoSpecify);
 </script>
 <script type="text/html" id="mapper-template">
   <h2 data-bind="text: mapperName"></h2>
-  <div id="map" class="google-maps" style="height: 300px; width: 600px;">MAP GOES HERE</div>
+  <div class="row">
+    <div id="map" class="google-maps span12" style="height: 300px;">Fetching data...</div>
+  </div>
   <div data-bind="foreach: contributions">
     <div class="row">
       <div class="span3">Latitude:</div>
@@ -339,10 +341,4 @@ $('body').on('shown', '#contributionModal', loadGeoSpecify);
     </div>
   </div>
   <p>Updated: <span data-bind="text: lastUpdated"></span></p>
-  <!--<input type="hidden" data-bind=""/>-->
-</script>
-<script>
-  console.log(mapperViewModel.selectedMapper.on);
-  // $.getJSON('http://jazzycat-emit-meow-api.nko3.jit.su/contribution/api', console.log);
-
 </script>
