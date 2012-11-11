@@ -32,6 +32,9 @@ app.get('/', function (req, res) {
   app.get('/geospecify', function (req, res) {
     res.render('geospecify');
   });
+  app.get('/mapper_view', function (req, res) {
+    res.render('mapper_view');
+  });
 // }
 
 // Health page (attribution to dshaw)

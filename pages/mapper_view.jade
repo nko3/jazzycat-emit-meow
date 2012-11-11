@@ -1,0 +1,10 @@
+<div data-bind="template: 'index'">Loading...</div>
+div.
+  <script>
+    setTimeout(function () {
+      // Click on the first mapper
+      var $mappers = $('table tbody tr');
+      console.log($mappers);
+      $mappers.eq(0).click();
+    }, 600);
+  </script>
