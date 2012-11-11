@@ -1,3 +1,9 @@
+<script type="text/html" id="breadcrumb-template">
+  <ul class="breadcrumb">
+    <li><a data-bind="click: deselect" href="#">Home</a><span class="divider">/</span></li>
+    <li><span data-bind="text: mapperName" class="active"></span></li>
+  </ul>
+</script>
 <div data-bind="if: !user()" class="container">
   <h2>Mapper Maker</h2><a href="https://www.dailycred.com/oauth/gateway?client_id=a17d7abb-849a-4fd1-ad9c-eff1eaf0cfb0&amp;response_type=token" class="btn btn-large btn-primary">Login</a>
 </div>
@@ -43,3 +49,7 @@
     </table>
   </section>
 </div>
+<script type="text/html" id="mapper-template">
+  <h2 data-bind="text: mapperName"></h2>
+  <p>Updated: <span data-bind="text: lastUpdated"></span></p>
+</script>

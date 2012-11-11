@@ -23,12 +23,16 @@ module.exports = function(grunt) {
         ],
         dest: 'dist/js/all.js'
       },
-      'mvc': {
+      'models': {
         src: [
           'models/mapperList.js',
           'models/*.js'
         ],
         dest: 'dist/models/all.js'
+      },
+      'views': {
+        src: ['views/*.html'],
+        dest: 'dist/views/all.html'
       }
     },
     less: {
