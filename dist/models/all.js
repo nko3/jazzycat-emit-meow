@@ -6,13 +6,26 @@ function Mapper (data, parent) {
   self.contribution_ids = data.contribution_ids;
   self.numContributions = data.count || 0;
   self.lastUpdated = new Date();
+  self.contributions = ko.observableArray();
   // self.folder = data.keyword;
   self.select = function () {
     location.hash = '/' + self.mapperName;
+    $.getJSON('http://jazzycat-emit-meow-api.nko3.jit.su/contribution/' +
+      self.mapperName,
+      function (data, status) {
+      if(status === 'success') {
+        console.log('Contributions found: ', data.length);
+        data.forEach(function (contrib) {
+          self.contributions.push(new Contribution(contrib, self));
+        });
+        console.log('Viewing ' + self.contributions().length + ' contributions');
+      }
+    });
     parent.selectedMapper(self);
   };
   self.deselect = function () {
     location.hash = '/';
+    self.contributions([]);
     parent.selectedMapper(null);
   };
 }
@@ -22,7 +35,7 @@ function MapperViewModel () {
   $.getJSON('http://jazzycat-emit-meow-api.nko3.jit.su/keyword',
     function (data, status) {
     if(status === 'success') {
-      console.log(data.length);
+      console.log('Mappers found: ', data.length);
       data.forEach(function (mapper) {
         self.mappers.push(new Mapper(mapper, self));
       });
@@ -78,6 +91,13 @@ function Geospecify(data) {
   this.submit = function () {
     console.log('zzxz', arguments);
   };
+}
+function Contribution (data, parent) {
+  var self = this;
+  self.lat = data.lat;
+  self.lng = data.lng;
+  self.keywords = ko.observableArray(data.keywords);
+  self.meta = ko.observable(data.meta || {});
 }
 /*global mapperViewModel*/
 function User (data) {
