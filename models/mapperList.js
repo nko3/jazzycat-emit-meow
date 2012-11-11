@@ -15,7 +15,7 @@ function Mapper (data, parent) {
     parent.selectedMapper(self);
   };
   self.deselect = function () {
-    location.hash = '';
+    location.hash = '/';
     parent.selectedMapper(null);
   };
 }

@@ -15,7 +15,7 @@ function Mapper (data, parent) {
     parent.selectedMapper(self);
   };
   self.deselect = function () {
-    location.hash = '';
+    location.hash = '/';
     parent.selectedMapper(null);
   };
 }
@@ -82,7 +82,9 @@ function User (data) {
 
 (function () {
   if (document.location.hash.length !== 0) {
-    var token_query = document.location.hash.substring(1);
+    var token_query = encodeURIComponent(document.location.hash.substring(1));
+    // var url = "https://www.dailycred.com/graph/me.json?" +
+      // "client=a17d7abb-849a-4fd1-ad9c-eff1eaf0cfb0";
     var url = "https://www.dailycred.com/graph/me.json?" +
       "client=a17d7abb-849a-4fd1-ad9c-eff1eaf0cfb0&" + token_query;
     $.ajax({
