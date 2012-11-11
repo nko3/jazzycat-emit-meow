@@ -39,21 +39,27 @@
       name: 'breadcrumb-template',
       data: {'mapperName': null}
     }"></div> -->
-    <div class="alert alert-info">
-      <strong>Mapper Maker</strong> is a generalization of <a href="http://en.wikipedia.org/wiki/Geotagging">geotagging</a> tools like <a href="http://beardspotter.com/">Beardspotter</a>.
-      <br/>
-      We grab live data from photo hosting services, like Flickr and Instagram,
-      and present it visually via <a href="http://maps.google.com/">Google Maps</a>.
-      <!-- <br/>
-      Powered by <a>node.js</a>, <a>teleportd</a>, and a love for cats. meow. -->
+    <div class="row">
+      <div class="span9">
+        <div class="alert alert-info">
+          <strong>Mapper Maker</strong> is a generalization of <a href="http://en.wikipedia.org/wiki/Geotagging">geotagging</a> tools like <a href="http://beardspotter.com/">Beardspotter</a>.
+          <br/>
+          We grab live data from photo hosting services, like Flickr and Instagram,
+          and present it visually via <a href="http://maps.google.com/">Google Maps</a>.
+          <!-- <br/>
+          Powered by <a>node.js</a>, <a>teleportd</a>, and a love for cats. meow. -->
+        </div>
+      </div>
+      <div class="span3">
+        <form class="form-search pull-right">
+          <input
+            type="text"
+            placeholder="Search mappers..."
+            class="input-medium search-query"
+            data-bind="value: search">
+        </form>
+      </div>
     </div>
-    <form class="form-search pull-right">
-      <input
-        type="text"
-        placeholder="Search mappers..."
-        class="input-medium search-query"
-        data-bind="value: search">
-    </form>
     <table class="table table-striped table-hover">
       <thead>
         <tr>
