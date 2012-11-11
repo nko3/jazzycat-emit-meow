@@ -5005,7 +5005,10 @@ body {
 .map {
   height: 300px;
 }
+.modal-body {
+  max-height: none;
+}
 .modal-body .google-maps {
   width: 530px;
-  height: 100px;
+  height: 200px;
 }

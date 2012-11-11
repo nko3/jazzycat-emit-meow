@@ -135,7 +135,7 @@ function loadGeoSpecify() {
         'lat': 40.7142,
         'lng': -74.0064
       },
-      DEFAULT = NODEJITSU;
+      DEFAULT = JOYENT;
 
   $(function () {
     // Grab the output
@@ -319,15 +319,13 @@ window.properLng = function (lng) {
   return properLng;
 }
 
-// Bind to the contribution modal once the DOM is ready
-setTimeout(function () {
-  $(loadGeoSpecify);
-}, 1000);
+// // Bind to the contribution modal once the DOM is ready
+// setTimeout(function () {
+//   $(loadGeoSpecify);
+// }, 1000);
 
-// // When the contribution modal is opened
-// $('body').on('show', '#contributionModal', function (e) {
-//   var target = e.target;
-// });
+// When the contribution modal is opened
+$('body').on('shown', '#contributionModal', loadGeoSpecify);
 </script>
 <script type="text/html" id="mapper-template">
   <h2 data-bind="text: mapperName"></h2>
