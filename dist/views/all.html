@@ -51,16 +51,16 @@
             <li><a href="#api" data-bind="click: gotoAPI">API Documentation</a></li>
           </ul>
           <div class="nav-collapse collapse navbar-responsive-collapse">
+            <!--
             <div data-bind="if: !user()">
               <a class="btn btn-primary pull-right"
                 href="https://www.dailycred.com/oauth/gateway?client_id=a17d7abb-849a-4fd1-ad9c-eff1eaf0cfb0&amp;response_type=token">Login to Contribute</a>
             </div>
-            <div data-bind="if: user">
-              <button
-                class="btn btn-success pull-right"
-                data-target="#contributionModal"
-                data-toggle="modal">Add Contribution</button>
-            </div>
+            -->
+            <button
+              class="btn btn-success pull-right"
+              data-target="#contributionModal"
+              data-toggle="modal">Add Contribution</button>
           </div>
         </div></div>
       </div>
@@ -137,8 +137,8 @@
       <form id="addressForm">
         <!-- TODO: Autocomplete for address as they type it in?-->
         <div class="input-append" style="margin-top: 5px;">
-          <input id="address" type="text" style="width: 400px;" placeholder="1 Embarcadero Center, San Francisco, CA 94111" />
-          <button type="submit" class="btn" style="width: 117px;">Update address</button>
+          <input id="address" type="text" style="width: 390px;" placeholder="1 Embarcadero Center, San Francisco, CA 94111" />
+          <button type="submit" class="btn" style="width: 127px;">Update address</button>
         </div>
         <div class="row">
           <div class="span3">
@@ -395,7 +395,7 @@ $('body').on('shown', '#contributionModal', loadGeoSpecify);
       </tr>
     </thead>
     <tbody data-bind="foreach: contributions">
-      <tr data-bind="click: showContribution">
+      <tr>
         <td data-bind="text: lat"></td>
         <td data-bind="text: lng"></td>
         <td><img class="smallTablePic" data-bind="attr: { src: contributorPic }" /><span data-bind="text: contributor"></span></td>

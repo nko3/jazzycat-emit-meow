@@ -105,7 +105,7 @@ function Mapper (data, parent) {
   self.mapperName = data.name;
   self.contribution_ids = data.contribution_ids;
   self.numContributions = data.count || 0;
-  self.lastUpdated = new Date();
+  self.lastUpdated = data.lastUpdated || new Date();
   self.contributions = ko.observableArray();
   self.select = function () {
     location.hash = '/' + self.mapperName;
