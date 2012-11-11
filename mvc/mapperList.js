@@ -39,7 +39,7 @@ function MapperViewModel () {
   self.user = ko.observable();
 }
 
-mapperViewModel = new MapperViewModel();
+window.mapperViewModel = new MapperViewModel();
 
 $(function() {
   ko.applyBindings(mapperViewModel);
