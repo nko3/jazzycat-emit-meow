@@ -26,6 +26,9 @@ app.get('/', function (req, res) {
   app.get('/google_maps', function (req, res) {
     res.render('google_maps');
   });
+  app.get('/geolookup', function (req, res) {
+    res.render('geolookup');
+  });
 // }
 
 // Health page (attribution to dshaw)
