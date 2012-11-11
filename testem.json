@@ -2,13 +2,14 @@
   "framework": "mocha",
   "src_files": [
     "dist/js/all.js",
-    "mvc/*.js",
+    "models/*.js",
     "test/*.js",
     "routes/*.js"
   ],
   "launch_in_dev": [
     "Chrome",
-    "PhantomJS"
+    "FireFox",
+    "Safari"
   ],
   "before_tests": "jshint ."
 }

@@ -11,7 +11,7 @@ describe('api', function () {
       setTimeout(function () {
         mapperViewModel.mappers().should.not.be.empty;
         done();
-      }, 500);
+      }, 1000);
     });
   });
 
@@ -20,7 +20,7 @@ describe('api', function () {
       $.get(baseUrl + '/', function (data) {
         data.should.be.a('array');
         done();
-      });
+      }, 'json');
     });
   });
 
@@ -29,7 +29,7 @@ describe('api', function () {
       $.get(baseUrl + '/test', function (data) {
         data.should.be.a('array');
         done();
-      });
+      }, 'json');
     });
   });
 
@@ -38,7 +38,7 @@ describe('api', function () {
       $.post(baseUrl + '/test' + (Math.random()), {}, function (data) {
         data.should.be.a('object');
         done();
-      });
+      }, 'json');
     });
   });
 
@@ -53,7 +53,7 @@ describe('api', function () {
       }, function (data) {
         data.should.be.a('object');
         done();
-      });
+      }, 'json');
     });
   });
 
@@ -68,7 +68,7 @@ describe('api', function () {
       }, function (data) {
         data.should.be.a('object');
         done();
-      });
+      }, 'json');
     });
   });
 });
