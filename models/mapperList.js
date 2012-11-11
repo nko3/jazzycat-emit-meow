@@ -76,6 +76,8 @@ function MapperViewModel () {
     self.selectedMapper(null);
     // TODO: Navigate to API
   };
+
+  self.search = ko.observable();
 }
 
 window.mapperViewModel = new MapperViewModel();
