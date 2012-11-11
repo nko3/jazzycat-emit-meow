@@ -51,6 +51,19 @@ function MapperViewModel () {
   // }, 100);
 
   self.mappers = ko.observableArray();
+  self.filteredMappers = ko.computed(function () {
+    var filtered = [];
+    self.mappers().forEach(function (element) {
+      if (!self.search()) {
+        return filtered.push(element);
+      }
+      var test = new RegExp(self.search());
+      if (test.test(element.mapperName)) {
+        filtered.push(element);
+      }
+    });
+    return filtered;
+  });
 
   self.selectedMapper = ko.observable();
   self.createMapper = function () {
@@ -58,18 +71,20 @@ function MapperViewModel () {
     self.mappers.push(new Mapper({}, self));
   };
   self.user = ko.observable();
-  
+
   self.gotoMappers = function () {
     location.hash = '/';
     self.selectedMapper(null);
     self.viewingAPI(null);
   };
-  
+
   self.gotoAPI = function () {
     location.hash = 'api';
     self.selectedMapper(null);
     self.viewingAPI(new API({}, self));
   };
+
+  self.search = ko.observable();
 }
 
 window.mapperViewModel = new MapperViewModel();
