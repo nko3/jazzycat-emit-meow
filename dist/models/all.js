@@ -53,11 +53,14 @@ function MapperViewModel () {
   self.mappers = ko.observableArray();
   self.filteredMappers = ko.computed(function () {
     var filtered = [];
-    if (!self.mappers() && !self.mappers().length) {
-      return filtered.push(filtered);
-    }
     self.mappers().forEach(function (element) {
-      filtered.push(element);
+      if (!self.search()) {
+        return filtered.push(element);
+      }
+      var test = new RegExp(self.search());
+      if (test.test(element.mapperName)) {
+        filtered.push(element);
+      }
     });
     return filtered;
   });
