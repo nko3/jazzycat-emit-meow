@@ -3,13 +3,19 @@
   <div class="row">
     <div id="map" class="google-maps span12"><span class="muted">Fetching data...</span></div>
   </div>
-  <div data-bind="foreach: contributions">
-    <div class="row">
-      <div class="span3">Latitude:</div>
-      <div class="span3" data-bind="text: lat"></div>
-      <div class="span3">Longitude:</div>
-      <div class="span3" data-bind="text: lng"></div>
-    </div>
-  </div>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Latitude</th>
+        <th>Longitude</th>
+      </tr>
+    </thead>
+    <tbody data-bind="foreach: contributions">
+      <tr>
+        <td data-bind="text: lat"></td>
+        <td data-bind="text: lng"></td>
+      </tr>
+    </tbody>
+  </table>
   <p>Updated: <span data-bind="text: lastUpdated"></span></p>
 </script>
