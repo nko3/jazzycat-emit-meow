@@ -1,3 +1,6 @@
+<script type="text/html" id="api-docs-template">
+  Hello world
+</script>
 <script type="text/html" id="breadcrumb-template">
   <ul class="breadcrumb">
     <li>
@@ -94,7 +97,10 @@
     </table>
   </section>
   <section data-bind="if: selectedAPI()" class="container">
-    testing
+    <div data-bind="template: {
+      name: 'api-docs-template',
+      data: selectedAPI
+    }" class="api-docs"></div>
   </section>
   <div id="contributionModal" class="modal hide fade">
     <div class="modal-header">
