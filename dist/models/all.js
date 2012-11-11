@@ -57,8 +57,8 @@ $(function() {
 function Geospecify(data) {
   // Save the data to our object
   var self = this;
-  this.submit = function (e) {
-    console.log('zzz', e);
+  this.submit = function () {
+    console.log('zzxz', arguments);
   };
 }
 /*global mapperViewModel*/
