@@ -67,6 +67,15 @@ window.mapperViewModel = new MapperViewModel();
 
 $(function() {
   ko.applyBindings(mapperViewModel);
+
+  var $nav = $('ul.nav');
+
+  $nav.on('click', 'li', function () {
+    var context = $(this).context,
+      $clicked = $(context);
+    $clicked.siblings().removeClass('active');
+    $clicked.addClass('active');
+  });
 });
 
 
