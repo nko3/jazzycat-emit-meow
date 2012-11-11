@@ -18,39 +18,38 @@
   <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container">
-        <a href="#" class="brand">Mapper Maker</a>
-        <div class="nav-collapse collapse navbar-responsive-collapse">
-          <div data-bind="if: !user()">
-            <a class="btn btn-primary pull-right"
-              href="https://www.dailycred.com/oauth/gateway?client_id=a17d7abb-849a-4fd1-ad9c-eff1eaf0cfb0&amp;response_type=token">Login to Contribute</a>
+          <a href="#" class="brand">Mapper Maker</a>
+          <div class="nav-collapse collapse navbar-responsive-collapse">
+            <div data-bind="if: !user()">
+              <a class="btn btn-primary pull-right"
+                href="https://www.dailycred.com/oauth/gateway?client_id=a17d7abb-849a-4fd1-ad9c-eff1eaf0cfb0&amp;response_type=token">Login to Contribute</a>
+            </div>
+            <div data-bind="if: user">
+              <button
+                class="btn btn-success pull-right"
+                data-target="#contributionModal"
+                data-toggle="modal">Add Contribution</button>
+            </div>
           </div>
-          <div data-bind="if: user">
-            <button
-              class="btn btn-success pull-right"
-              data-target="#contributionModal"
-              data-toggle="modal">Add Contribution</button>
-          </div>
-        </div>
+        </div></div>
       </div>
     </div>
   </div>
-  <div data-bind="if: selectedMapper" class="container paddingPush">
-    <div data-bind="template: {
+  <div data-bind="if: selectedMapper" class="container">
+    <!-- <div data-bind="template: {
         name: 'breadcrumb-template',
         data: selectedMapper
-      }"></div>
-    <section class="container">
-      <div data-bind="template: {
-        name: 'mapper-template',
-        data: selectedMapper
-      }" class="mapper"></div>
-    </section>
+      }"></div> -->
+    <div data-bind="template: {
+      name: 'mapper-template',
+      data: selectedMapper
+    }" class="mapper"></div>
   </div>
   <section data-bind="if: !selectedMapper()" class="container">
-    <div data-bind="template: {
+    <!-- <div data-bind="template: {
       name: 'breadcrumb-template',
       data: {'mapperName': null}
-    }"></div>
+    }"></div> -->
     <form class="form-search pull-right">
       <input
         type="text"
@@ -329,7 +328,9 @@ $('body').on('shown', '#contributionModal', loadGeoSpecify);
 </script>
 <script type="text/html" id="mapper-template">
   <h2 data-bind="text: mapperName"></h2>
-  <div id="map" class="google-maps"><span class="muted">Loading map...</span></div>
+  <div class="row">
+    <div id="map" class="google-maps span12"><span class="muted">Fetching data...</span></div>
+  </div>
   <div data-bind="foreach: contributions">
     <div class="row">
       <div class="span3">Latitude:</div>
@@ -339,10 +340,4 @@ $('body').on('shown', '#contributionModal', loadGeoSpecify);
     </div>
   </div>
   <p>Updated: <span data-bind="text: lastUpdated"></span></p>
-  <!--<input type="hidden" data-bind=""/>-->
-</script>
-<script>
-  console.log(mapperViewModel.selectedMapper.on);
-  // $.getJSON('http://jazzycat-emit-meow-api.nko3.jit.su/contribution/api', console.log);
-
 </script>
