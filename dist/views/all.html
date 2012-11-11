@@ -329,14 +329,20 @@ $('body').on('shown', '#contributionModal', loadGeoSpecify);
 </script>
 <script type="text/html" id="mapper-template">
   <h2 data-bind="text: mapperName"></h2>
+  <div id="xap"></div>
   <div data-bind="foreach: contributions">
-    <span data-bind="text: lat"></span>
-    <span data-bind="text: lng"></span>
+    <div class="row">
+      <div class="span3">Latitude:</div>
+      <div class="span3" data-bind="text: lat"></div>
+      <div class="span3">Longitude:</div>
+      <div class="span3" data-bind="text: lng"></div>
+    </div>
   </div>
   <p>Updated: <span data-bind="text: lastUpdated"></span></p>
   <!--<input type="hidden" data-bind=""/>-->
 </script>
 <script>
+  console.log(mapperViewModel.selectedMapper.on);
   // $.getJSON('http://jazzycat-emit-meow-api.nko3.jit.su/contribution/api', console.log);
 
 </script>
