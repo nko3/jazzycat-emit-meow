@@ -36,7 +36,17 @@ script
 
       // When it is done being dragged, output location updated
       'dragend': onDragend
+
+        // Open a context menu
     });
+
+    function updateCoordsFn(coords) {
+      var coords = {
+            'lat': coords.lat(),
+            'lng': coords.lng()
+          };
+      updateCoords(coords);
+    }
 
     // Helper method to update coordinates
     function updateCoords(coords) {
@@ -88,17 +98,30 @@ script
             if (results.length > 0) {
               // Pick the first one
               var firstResult = results[0],
-                  location = firstResult.geometry.location,
-                  coords = {
-                    'lat': location.lat(),
-                    'lng': location.lng()
-                  };
+                  location = firstResult.geometry.location;
 
               // and update the map with it
-              updateCoords(coords);
+              updateCoordsFn(location);
             }
           }
         }
       });
+    });
+
+    // When the map is right clicked, open a context menu
+    map.setContextMenu({
+      control: 'map',
+      options: [{
+        // with the option of "Move marker to here"
+        title: 'Move marker to here',
+        name: 'move_marker',
+
+        // If the "Move marker to here" is clicked
+        action: function (e) {
+          // Move the marker to the point of interaction
+          var location = e.latLng;
+          updateCoordsFn(location);
+        }
+      }]
     });
   });
