@@ -34,7 +34,7 @@
       data: selectedMapper
     }" class="mapper"></div>
   </div>
-  <section data-bind="if: !selectedMapper()" class="container">
+  <section data-bind="if: !selectedMapper() && !selectedAPI()" class="container">
     <!-- <div data-bind="template: {
       name: 'breadcrumb-template',
       data: {'mapperName': null}
@@ -76,6 +76,12 @@
         </tr>
       </tbody>
     </table>
+  </section>
+  <section data-bind="if: selectedAPI()" class="container">
+    <div data-bind="template: {
+      name: 'api-docs-template',
+      data: selectedAPI
+    }" class="api-docs"></div>
   </section>
   <div id="contributionModal" class="modal hide fade">
     <div class="modal-header">

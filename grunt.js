@@ -25,6 +25,7 @@ module.exports = function(grunt) {
       },
       'models': {
         src: [
+          'models/api.js', 'models/contribution.js',
           // Mapper list before all
           'models/mapperList.js',
           // Location then geospecify
