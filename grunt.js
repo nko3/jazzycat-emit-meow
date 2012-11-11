@@ -25,7 +25,10 @@ module.exports = function(grunt) {
       },
       'models': {
         src: [
+          // Mapper list before all
           'models/mapperList.js',
+          // Location then geospecify
+          'models/location.js', 'models/geospecify.js',
           'models/*.js'
         ],
         dest: 'dist/models/all.js'

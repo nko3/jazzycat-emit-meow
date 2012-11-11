@@ -6,10 +6,9 @@
       width: 600px;
     }
   </style>
-  <form id="addressForm">
+  <form id="addressForm" data-bind="submit: submit">
     <!-- TODO: Autocomplete for address as they type it in?-->
-    <input id="address" placeholder="1 Embarcadero Center, San Francisco, CA 94111"
-    />
+    <input id="address" placeholder="1 Embarcadero Center, San Francisco, CA 94111" />
     <button type="submit" class="btn">Update address</button>
   </form>
   <p id="geoOutput">Resolving location...</p>
