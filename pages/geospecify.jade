@@ -34,6 +34,15 @@ script
       'draggable': true
     });
 
+    // Helper method to update coordinates
+    function updateCoords(coords) {
+      // var latLng = new google.maps.LatLng(coords.lat, coords.lng);
+      // marker.setPosition(latLng);
+      console.log(coords);
+      // map.setCenter(coords);
+      map.setCenter(JOYENT);
+    }
+
     // Output the current location
     function outputLocation() {
       var position = marker.getPosition();
@@ -44,9 +53,14 @@ script
     getCoordinates(function (err, coords) {
       // If there are coordinates, update the map to them
       if (coords) {
-        console.log('got coords', coords);
-        // TODO: Set coordinates of map
-        // TODO: Convert keys (latitude) to lat, lng
+        // Set coordinates of map
+        // updateCoords({
+        //   'lat': coords.latitude,
+        //   'lng': coords.longitude
+        // });
       }
     });
+    
+    // Update the coordinates
+    updateCoords();
   });
