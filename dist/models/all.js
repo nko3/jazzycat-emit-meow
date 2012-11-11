@@ -19,6 +19,9 @@ function Mapper (data, parent) {
           self.contributions.push(new Contribution(contrib, self));
         });
         console.log('Viewing ' + self.contributions().length + ' contributions');
+
+        // Load in map
+        loadMapperMap();
       }
     });
     parent.selectedMapper(self);
@@ -65,6 +68,11 @@ window.mapperViewModel = new MapperViewModel();
 $(function() {
   ko.applyBindings(mapperViewModel);
 });
+
+
+function loadMapperMap() {
+  $('#xap').text('zzzzzzzz');
+}
 /*global mapperViewModel*/
 
 /**
