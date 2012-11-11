@@ -72,14 +72,33 @@ script
     });
 
     // When the form is submitted
-    $('#addressForm').on('submit', function (e) {
+    var $address = $('#address'),
+        $addressForm = $('#addressForm');
+    $addressForm.on('submit', function (e) {
       // Do not submit
       e.preventDefault();
 
       // Look up the address
-      console.log('Form submitted!');
-        // If there are results
-          // Pick the first one
-            // and update the map with it
+      var address = $address.val();
+      GMaps.geocode({
+        'address': address,
+        'callback': function(results, status) {
+          if (status === 'OK') {
+            // If there are results
+            if (results.length > 0) {
+              // Pick the first one
+              var firstResult = results[0],
+                  location = firstResult.geometry.location,
+                  coords = {
+                    'lat': location.lat(),
+                    'lng': location.lng()
+                  };
+
+              // and update the map with it
+              updateCoords(coords);
+            }
+          }
+        }
+      });
     });
   });
