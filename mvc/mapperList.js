@@ -3,7 +3,10 @@ var mapperViewModel;
 function Mapper (data, parent) {
   var self = this;
   self.mapperName = data.name;
-  self.contributions = data.contributions;
+  self.contribution_ids = data.contribution_ids;
+  self.numContributions = ko.computed(function () {
+    return self.contribution_ids.length;
+  });
   self.lastUpdated = new Date();
   self.folder = data.folder;
   self.select = function () {
@@ -17,32 +20,16 @@ function Mapper (data, parent) {
 }
 
 function MapperViewModel () {
-  var self = this;
+  var self = this,
+    mappers = $.get('http://jazzycat-emit-meow-api.nko3.jit.su/', function (data, status) {
+      if(status === 'success') {
+        data.forEach(function (mapper) {
+          self.mappers.push(new Mapper(mapper, self));
+        });
+      }
+    });
 
-  self.mappers =  ko.observableArray([
-    {
-      name: 'Motorcycle Parking Mapper',
-      contributions: 17,
-      folder: '/motorcycle'
-    },
-    {
-      name: 'Cat Mapper',
-      contributions: 77,
-      folder: '/cat'
-    },
-    {
-      name: 'Beard Mapper',
-      contributions: 21,
-      folder: '/beard'
-    },
-    {
-      name: ':3',
-      contributions: 5,
-      folder: '/kitteh'
-    }
-  ].map(function (data) {
-    return new Mapper(data, self);
-  }));
+  self.mappers = ko.observableArray();
 
   self.selectedMapper = ko.observable();
   self.createMapper = function () {

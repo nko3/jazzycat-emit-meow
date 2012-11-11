@@ -1,7 +1,7 @@
 .container(data-bind="if: !user()")
   h2 Mapper Maker
   a.btn.btn-large.btn-primary(href="https://www.dailycred.com/oauth/gateway?client_id=a17d7abb-849a-4fd1-ad9c-eff1eaf0cfb0&response_type=token") Login
-div(data-bind="if: user")
+div
   script(type="text/html", id="mapper-template")
     <h2 data-bind="text: mapperName"></h2>
     <p>Updated: <span data-bind="text: lastUpdated"></span></p>
@@ -36,5 +36,5 @@ div(data-bind="if: user")
       tbody(data-bind="foreach: mappers")
         tr.actionable(data-bind="click: select")
           td(data-bind="text: mapperName")
-          td(data-bind="text: contributions")
+          td(data-bind="text: numContributions")
           td(data-bind="text: lastUpdated")
