@@ -9,13 +9,17 @@
         <th>Latitude</th>
         <th>Longitude</th>
         <th>Contributor</th>
+        <th></th>
+        <th>Contribution</th>
       </tr>
     </thead>
     <tbody data-bind="foreach: contributions">
-      <tr>
+      <tr data-bind="click: showContribution">
         <td data-bind="text: lat"></td>
         <td data-bind="text: lng"></td>
         <td data-bind="text: contributor"></td>
+        <td><img class="tablePic" data-bind="attr: { src: contributorPic }" /></td>
+        <td><a data-bind="attr: { href: imgUrl }"><img class="tablePic" data-bind="attr: { src: thumbnailUrl }" /></a></td>
       </tr>
     </tbody>
   </table>
