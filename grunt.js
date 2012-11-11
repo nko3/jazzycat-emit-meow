@@ -28,7 +28,7 @@ module.exports = function(grunt) {
           'models/mapperList.js',
           'models/*.js'
         ],
-        dest: 'dist/mvc/all.js'
+        dest: 'dist/models/all.js'
       }
     },
     less: {
