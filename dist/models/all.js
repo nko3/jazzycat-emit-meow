@@ -172,6 +172,7 @@ function API(data, parent) {
         var description = data[name],
             route = {'name': name};
         Object.merge(route, description);
+        Object.merge(route, {'post_body_template': null});
         self.routes.push(route);
       });
     }
