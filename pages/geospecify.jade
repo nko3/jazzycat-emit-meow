@@ -12,7 +12,9 @@ p
 p#geoOutput Resolving location...
 
 script
-  var JOYENT = {'lat': 37.7943446, 'lng': -122.399981};
+  var JOYENT = {'lat': 37.7943446, 'lng': -122.399981},
+      NODEJITSU = {'lat': 40.7142, 'lng': -74.0064},
+      DEFAULT = NODEJITSU;
 
   $(function () {
     // Grab the output
@@ -21,14 +23,14 @@ script
     // Generate our map
     var map = new GMaps({
       'div': '#map',
-      'lat': JOYENT.lat,
-      'lng': JOYENT.lng
+      'lat': DEFAULT.lat,
+      'lng': DEFAULT.lng
     });
 
     // Add a draggable location marker
     var marker = map.addMarker({
-      'lat': JOYENT.lat,
-      'lng': JOYENT.lng,
+      'lat': DEFAULT.lat,
+      'lng': DEFAULT.lng,
       'draggable': true
     });
 
