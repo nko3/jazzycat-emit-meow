@@ -67,8 +67,10 @@
       <div id="geospecify-map" class="google-maps">Loading map...</div>
       <form id="addressForm">
         <!-- TODO: Autocomplete for address as they type it in?-->
-        <input id="address" placeholder="1 Embarcadero Center, San Francisco, CA 94111" />
-        <button type="submit" class="btn">Update address</button>
+        <div class="input-append">
+          <input id="address" type="text" placeholder="1 Embarcadero Center, San Francisco, CA 94111" />
+          <button type="submit" class="btn">Update address</button>
+        </div>
       </form>
       <p id="geoOutput">Resolving location...</p>
       <form class="form-horizontal">
@@ -128,28 +130,25 @@ function loadGeoSpecify() {
 
     // Generate our map
     var map = new GMaps({
-      'div': '#map',
-        'lat': DEFAULT.lat,
-        'lng': DEFAULT.lng
+      'div': '#geospecify-map',
+      'lat': DEFAULT.lat,
+      'lng': DEFAULT.lng
     });
 
     // Add a draggable location marker
     var marker = map.addMarker({
       'lat': DEFAULT.lat,
-        'lng': DEFAULT.lng,
-        'draggable': true,
+      'lng': DEFAULT.lng,
+      'draggable': true,
 
       // When it is done being dragged, output location updated
       'dragend': onDragend
-
-      // Open a context menu
-
     });
 
     function updateCoordsFn(coords) {
       var coords = {
         'lat': coords.lat(),
-          'lng': coords.lng()
+        'lng': coords.lng()
       };
       updateCoords(coords);
     }
@@ -182,14 +181,14 @@ function loadGeoSpecify() {
         // Set coordinates of map
         updateCoords({
           'lat': coords.latitude,
-            'lng': coords.longitude
+          'lng': coords.longitude
         });
       }
     });
 
     // When the form is submitted
     var $address = $('#address'),
-      $addressForm = $('#addressForm');
+        $addressForm = $('#addressForm');
     $addressForm.on('submit', function (e) {
       // Do not submit
       e.preventDefault();
@@ -204,7 +203,7 @@ function loadGeoSpecify() {
             if (results.length > 0) {
               // Pick the first one
               var firstResult = results[0],
-                location = firstResult.geometry.location;
+                  location = firstResult.geometry.location;
 
               // and update the map with it
               updateCoordsFn(location);
@@ -232,4 +231,14 @@ function loadGeoSpecify() {
     });
   });
 }
+
+// Bind to the contribution modal once the DOM is ready
+setTimeout(function () {
+  $(loadGeoSpecify);
+}, 1000);
+
+// // When the contribution modal is opened
+// $('body').on('show', '#contributionModal', function (e) {
+//   var target = e.target;
+// });
 </script>
