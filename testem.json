@@ -8,8 +8,8 @@
   ],
   "launch_in_dev": [
     "Chrome",
-    "PhantomJS",
-    "FireFox"
+    "FireFox",
+    "Safari"
   ],
   "before_tests": "jshint ."
 }
